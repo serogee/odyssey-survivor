@@ -1,16 +1,16 @@
 [gd_scene load_steps=18 format=3 uid="uid://dncgepmkc4jf4"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_37q80"]
-[ext_resource type="Texture2D" uid="uid://me6akig8sv1i" path="res://Textures/Player/player_sprite.png" id="1_jefax"]
+[ext_resource type="Texture2D" uid="uid://doa3scrwgj2oq" path="res://Textures/Player/player_sprite.png" id="1_jefax"]
 [ext_resource type="PackedScene" uid="uid://xy3cvpwdy828" path="res://Utility/hurt_box.tscn" id="3_gs51i"]
-[ext_resource type="Texture2D" uid="uid://bdjl6egowoej2" path="res://Textures/GUI/exp_background.png" id="4_pbpj5"]
-[ext_resource type="Texture2D" uid="uid://u2uw2eoj23po" path="res://Textures/GUI/exp_progress.png" id="5_5ive2"]
-[ext_resource type="FontFile" uid="uid://cnelb5ulw2wpq" path="res://Font/tenderness.otf" id="6_okx7u"]
-[ext_resource type="AudioStream" uid="uid://b1sq3xfcm2e2e" path="res://Audio/SoundEffect/levelup.ogg" id="7_wl7d2"]
-[ext_resource type="Texture2D" uid="uid://bujp3m578qsxl" path="res://Textures/GUI/healthbar.png" id="8_flesq"]
-[ext_resource type="Texture2D" uid="uid://cjy2fwakjdlbf" path="res://Textures/GUI/health.png" id="9_uker1"]
-[ext_resource type="AudioStream" uid="uid://bxawf1wgd8ub0" path="res://Audio/SoundEffect/Victory.wav" id="10_rwm3p"]
-[ext_resource type="AudioStream" uid="uid://bmdfwwsclqy3t" path="res://Audio/SoundEffect/Lose.ogg" id="11_28kfi"]
+[ext_resource type="Texture2D" uid="uid://dx7xx6vfahxlq" path="res://Textures/GUI/exp_background.png" id="4_pbpj5"]
+[ext_resource type="Texture2D" uid="uid://dlx33roiu0vlj" path="res://Textures/GUI/exp_progress.png" id="5_5ive2"]
+[ext_resource type="FontFile" uid="uid://cb4e8g30xxp5u" path="res://Font/tenderness.otf" id="6_okx7u"]
+[ext_resource type="AudioStream" uid="uid://ul8hunj8tl2t" path="res://Audio/SoundEffect/levelup.ogg" id="7_wl7d2"]
+[ext_resource type="Texture2D" uid="uid://cj6a5rhwov14" path="res://Textures/GUI/healthbar.png" id="8_flesq"]
+[ext_resource type="Texture2D" uid="uid://da53mspvqfxq4" path="res://Textures/GUI/health.png" id="9_uker1"]
+[ext_resource type="AudioStream" uid="uid://bnv76nm5171dn" path="res://Audio/SoundEffect/Victory.wav" id="10_rwm3p"]
+[ext_resource type="AudioStream" uid="uid://ca6physj6mqei" path="res://Audio/SoundEffect/Lose.ogg" id="11_28kfi"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="12_i8esf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nffdp"]
@@ -75,6 +75,13 @@ wait_time = 0.2
 
 [node name="JavelinBase" type="Node2D" parent="Attack"]
 unique_name_in_owner = true
+
+[node name="PoisonSpearTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 1.5
+
+[node name="PoisonSpearAttackTimer" type="Timer" parent="Attack/PoisonSpearTimer"]
+wait_time = 0.075
 
 [node name="EnemyDetectionArea" type="Area2D" parent="."]
 visible = false
@@ -258,6 +265,8 @@ columns = 10
 [connection signal="timeout" from="Attack/IceSpearTimer/IceSpearAttackTimer" to="." method="_on_ice_spear_attack_timer_timeout"]
 [connection signal="timeout" from="Attack/TornadoTimer" to="." method="_on_tornado_timer_timeout"]
 [connection signal="timeout" from="Attack/TornadoTimer/TornadoAttackTimer" to="." method="_on_tornado_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/PoisonSpearTimer" to="." method="_on_ice_spear_timer_timeout"]
+[connection signal="timeout" from="Attack/PoisonSpearTimer/PoisonSpearAttackTimer" to="." method="_on_ice_spear_attack_timer_timeout"]
 [connection signal="body_entered" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_entered"]
 [connection signal="body_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_exited"]
 [connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]

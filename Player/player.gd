@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 
 var movement_speed = 40.0
-var hp = 100
-var maxhp = 100
+var hp = 101
+var maxhp = 101
 var last_movement = Vector2.UP
 var time = 0
 
@@ -19,6 +19,8 @@ var javelin = preload("res://Player/Attack/javelin.tscn")
 #AttackNodes
 @onready var iceSpearTimer = get_node("%IceSpearTimer")
 @onready var iceSpearAttackTimer = get_node("%IceSpearAttackTimer")
+@onready var PoisonSpearTimer = get_node("%PoisonSpearTimer")
+@onready var PoisonSpearAttackTimer = get_node("%PoisonSpearAttackTimer")
 @onready var tornadoTimer = get_node("%TornadoTimer")
 @onready var tornadoAttackTimer = get_node("%TornadoAttackTimer")
 @onready var javelinBase = get_node("%JavelinBase")
@@ -35,8 +37,15 @@ var additional_attacks = 0
 #IceSpear
 var icespear_ammo = 0
 var icespear_baseammo = 0
-var icespear_attackspeed = 1.5
+var icespear_attackspeed = 1
 var icespear_level = 0
+
+
+#Poisonspear
+var poison_ammo = 0
+var poison_baseammo = 0
+var poison_attackspeed = 0.25
+var poison_level = 0
 
 #Tornado
 var tornado_ammo = 0
@@ -145,7 +154,7 @@ func _on_ice_spear_attack_timer_timeout():
 			iceSpearAttackTimer.start()
 		else:
 			iceSpearAttackTimer.stop()
-
+			
 func _on_tornado_timer_timeout():
 	tornado_ammo += tornado_baseammo + additional_attacks
 	tornadoAttackTimer.start()

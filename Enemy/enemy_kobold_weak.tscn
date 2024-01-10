@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://gvm5jcbbgwdv"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_1bh7b"]
-[ext_resource type="Texture2D" uid="uid://dymhs2e2802ts" path="res://Textures/Enemy/kolbold_weak.png" id="2_ojadc"]
+[ext_resource type="Texture2D" uid="uid://bb2tqmla8xdg8" path="res://Textures/Enemy/kolbold_weak.png" id="2_ojadc"]
 [ext_resource type="PackedScene" uid="uid://xy3cvpwdy828" path="res://Utility/hurt_box.tscn" id="3_gamcv"]
 [ext_resource type="PackedScene" uid="uid://uhr6mtuisqm1" path="res://Utility/hit_box.tscn" id="4_vdnsx"]
-[ext_resource type="AudioStream" uid="uid://c3pfigulnm66m" path="res://Audio/SoundEffect/enemy_hit.ogg" id="5_03jve"]
+[ext_resource type="AudioStream" uid="uid://bi7t7cjthnhhc" path="res://Audio/SoundEffect/enemy_hit.ogg" id="5_03jve"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_24u87"]
 radius = 2.0
