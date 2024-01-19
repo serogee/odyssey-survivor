@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8fyp8pm7hbet"]
+
+[ext_resource type="Script" path="res://Player/Attack/poison_spear.gd" id="1_8i27u"]
+[ext_resource type="Texture2D" uid="uid://c88lc7vvs1hk1" path="res://Textures/Items/Weapons/poison_spear.png" id="2_eyhcn"]
+[ext_resource type="AudioStream" uid="uid://cl3g2vts3nyt0" path="res://Audio/SoundEffect/ice.wav" id="3_u8wi2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4tiy"]
+size = Vector2(6.36396, 33.234)
+
+[node name="PoisonSpear" type="Area2D" groups=["attack"]]
+top_level = true
+scale = Vector2(0.1, 0.1)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_8i27u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.396078, 1, 0, 1)
+texture = ExtResource("2_eyhcn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.500001, -0.999999)
+rotation = -0.785398
+shape = SubResource("RectangleShape2D_p4tiy")
+debug_color = Color(0.490196, 0.545098, 0.576471, 0.419608)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="snd_play" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_u8wi2")
+volume_db = -10.0
+pitch_scale = 5.0
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://0uv7xbpbe7o2"]
+
+[ext_resource type="Script" path="res://Player/GUI/damage_indicator.gd" id="1_ecgvc"]
+
+[sub_resource type="Animation" id="Animation_ku3qs"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_lpu7f"]
+resource_name = "new_animation"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_my8kg"]
+_data = {
+"RESET": SubResource("Animation_ku3qs"),
+"new_animation": SubResource("Animation_lpu7f")
+}
+
+[node name="DamageIndicator" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_ecgvc")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 36.025
+offset_bottom = 26.0
+text = "0"
+text_direction = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "new_animation"
+libraries = {
+"": SubResource("AnimationLibrary_my8kg")
+}
