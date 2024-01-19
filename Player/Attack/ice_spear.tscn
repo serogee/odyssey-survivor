@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://wpliv06gy0pq"]
 
-[ext_resource type="Script" path="res://Player/Attack/poison_spear.gd" id="1_ncd5b"]
+[ext_resource type="Script" path="res://Player/Attack/ice_spear.gd" id="1_7s46d"]
 [ext_resource type="Texture2D" uid="uid://jjt1rh5e2jcp" path="res://Textures/Items/Weapons/ice_spear.png" id="1_nhh0e"]
 [ext_resource type="AudioStream" uid="uid://cl3g2vts3nyt0" path="res://Audio/SoundEffect/ice.wav" id="3_esswn"]
 
@@ -12,7 +12,7 @@ top_level = true
 scale = Vector2(0.1, 0.1)
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("1_ncd5b")
+script = ExtResource("1_7s46d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_nhh0e")
@@ -20,7 +20,6 @@ texture = ExtResource("1_nhh0e")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.500001, -0.999999)
 rotation = -0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_p4tiy")
 
 [node name="Timer" type="Timer" parent="."]

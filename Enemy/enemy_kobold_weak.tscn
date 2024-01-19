@@ -93,6 +93,8 @@ shape = SubResource("RectangleShape2D_ucec4")
 stream = ExtResource("5_03jve")
 volume_db = -20.0
 
+[node name="DamageTimer" type="Timer" parent="."]
+
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 
 [editable path="HurtBox"]

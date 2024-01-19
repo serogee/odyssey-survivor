@@ -15,6 +15,7 @@ var collected_experience = 0
 var iceSpear = preload("res://Player/Attack/ice_spear.tscn")
 var tornado = preload("res://Player/Attack/tornado.tscn")
 var javelin = preload("res://Player/Attack/javelin.tscn")
+var poisonSpear = preload("res://Player/Attack/poison_spear.tscn")
 
 #AttackNodes
 @onready var iceSpearTimer = get_node("%IceSpearTimer")
@@ -37,14 +38,14 @@ var additional_attacks = 0
 #IceSpear
 var icespear_ammo = 0
 var icespear_baseammo = 0
-var icespear_attackspeed = 1
+var icespear_attackspeed = 1.5
 var icespear_level = 0
 
 
 #Poisonspear
 var poison_ammo = 0
 var poison_baseammo = 0
-var poison_attackspeed = 0.25
+var poison_attackspeed = 2
 var poison_level = 0
 
 #Tornado
@@ -88,7 +89,7 @@ var enemy_close = []
 signal playerdeath
 
 func _ready():
-	upgrade_character("icespear1")
+	upgrade_character("poisonspear1")
 	attack()
 	set_expbar(experience, calculate_experiencecap())
 	_on_hurt_box_hurt(0,0,0)
@@ -118,6 +119,10 @@ func movement():
 	move_and_slide()
 
 func attack():
+	if poison_level > 0:
+		PoisonSpearTimer.wait_time = poison_attackspeed * (1-spell_cooldown)
+		if PoisonSpearTimer.is_stopped():
+			PoisonSpearTimer.start()
 	if icespear_level > 0:
 		iceSpearTimer.wait_time = icespear_attackspeed * (1-spell_cooldown)
 		if iceSpearTimer.is_stopped():
@@ -137,6 +142,24 @@ func _on_hurt_box_hurt(damage, _angle, _knockback):
 	if hp <= 0:
 		death()
 
+func _on_poison_spear_timer_timeout():
+	poison_ammo += poison_baseammo + additional_attacks
+	PoisonSpearAttackTimer.start()
+
+
+func _on_poison_spear_attack_timer_timeout():
+	if poison_ammo > 0:
+		var poison_attack = poisonSpear.instantiate()
+		poison_attack.position = position
+		poison_attack.target = get_random_target()
+		poison_attack.level = poison_level
+		add_child(poison_attack)
+		poison_ammo -= 1
+		if poison_ammo > 0:
+			PoisonSpearAttackTimer.start()
+		else:
+			PoisonSpearAttackTimer.stop()
+			
 func _on_ice_spear_timer_timeout():
 	icespear_ammo += icespear_baseammo + additional_attacks
 	iceSpearAttackTimer.start()
@@ -245,7 +268,7 @@ func levelup():
 	sndLevelUp.play()
 	lblLevel.text = str("Level: ",experience_level)
 	var tween = levelPanel.create_tween()
-	tween.tween_property(levelPanel,"position",Vector2(220,50),0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
+	tween.tween_property(levelPanel,"position",Vector2(50,50),0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
 	tween.play()
 	levelPanel.visible = true
 	var options = 0
@@ -270,6 +293,17 @@ func upgrade_character(upgrade):
 		"icespear4":
 			icespear_level = 4
 			icespear_baseammo += 2
+		"poisonspear1":
+			poison_level = 1
+			poison_baseammo += 1
+		"poisonspear2":
+			poison_level = 2
+			poison_baseammo += 1
+		"poisonspear3":
+			poison_level = 3
+		"poisonspear4":
+			poison_level = 4
+			poison_baseammo += 2
 		"tornado1":
 			tornado_level = 1
 			tornado_baseammo += 1
@@ -293,7 +327,8 @@ func upgrade_character(upgrade):
 			javelin_level = 4
 		"armor1","armor2","armor3","armor4":
 			armor += 1
-		"speed1","speed2","speed3","speed4":
+		"speed1","speed2","spee
+		d3","speed4":
 			movement_speed += 20.0
 		"tome1","tome2","tome3","tome4":
 			spell_size += 0.10

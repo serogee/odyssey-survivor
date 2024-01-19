@@ -36,6 +36,38 @@ const UPGRADES = {
 		"prerequisite": ["icespear3"],
 		"type": "weapon"
 	},
+	"poisonspear1": {
+		"icon": WEAPON_PATH + "poison_spear.png",
+		"displayname": "Poison Spear",
+		"details": "A spear of poison is thrown at a random enemy",
+		"level": "Level: 1",
+		"prerequisite": [],
+		"type": "weapon"
+	},
+	"poisonspear2": {
+		"icon": WEAPON_PATH + "poison_spear.png",
+		"displayname": "Poison Spear",
+		"details": "An addition Poison Spear is thrown",
+		"level": "Level: 2",
+		"prerequisite": ["poisonspear1"],
+		"type": "weapon"
+	},
+	"poisonspear3": {
+		"icon": WEAPON_PATH + "poison_spear.png",
+		"displayname": "Poison Spear",
+		"details": "Poison Spears now pass through another enemy and do + 3 damage",
+		"level": "Level: 3",
+		"prerequisite": ["poisonspear2"],
+		"type": "weapon"
+	},
+	"poisonspear4": {
+		"icon": WEAPON_PATH + "poison_spear.png",
+		"displayname": "Poison Spear",
+		"details": "An additional 2 Poison Spears are thrown",
+		"level": "Level: 4",
+		"prerequisite": ["poisonspear3"],
+		"type": "weapon"
+	},
 	"javelin1": {
 		"icon": WEAPON_PATH + "javelin_3_new_attack.png",
 		"displayname": "Javelin",
