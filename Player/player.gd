@@ -6,7 +6,7 @@ var hp = 101
 var maxhp = 101
 var last_movement = Vector2.UP
 var time = 0
-
+var effect_type = ""
 var experience = 0
 var experience_level = 1
 var collected_experience = 0
@@ -92,7 +92,7 @@ func _ready():
 	upgrade_character("poisonspear1")
 	attack()
 	set_expbar(experience, calculate_experiencecap())
-	_on_hurt_box_hurt(0,0,0)
+	_on_hurt_box_hurt(0,0,0,0)
 
 func _physics_process(delta):
 	movement()
@@ -134,7 +134,7 @@ func attack():
 	if javelin_level > 0:
 		spawn_javelin()
 
-func _on_hurt_box_hurt(damage, _angle, _knockback):
+func _on_hurt_box_hurt(damage, _angle, _knockback, _effect_type):
 	hp -= clamp(damage-armor, 1.0, 999.0)
 	hp_level.text = str("HP:", hp,"/", maxhp)
 	healthBar.max_value = maxhp
