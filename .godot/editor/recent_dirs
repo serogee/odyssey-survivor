@@ -1,5 +1,8 @@
-res://Player/GUI
 res://World/Tilemaps
+res://Player
+res://Textures/Player
+res://Textures/Enemy
+res://Player/GUI
 res://Textures/Items/Weapons
 res://Player/Attack
 res://TitleScreen
@@ -9,4 +12,3 @@ res://Utility
 res://World
 res://Objects
 res://Enemy
-res://Player

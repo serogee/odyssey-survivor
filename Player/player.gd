@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 
-var movement_speed = 40.0
-var hp = 101
-var maxhp = 101
+var movement_speed = 100
+var hp = 100
+var maxhp = 100
 var last_movement = Vector2.UP
 var time = 0
 var effect_type = ""
@@ -63,7 +63,7 @@ var javelin_level = 0
 var enemy_close = []
 
 
-@onready var sprite = $Sprite2D
+@onready var sprite = $AnimatedSprite2D
 @onready var walkTimer = get_node("%walkTimer")
 
 #GUI
@@ -106,15 +106,11 @@ func movement():
 	elif mov.x < 0:
 		sprite.flip_h = false
 
-	if mov != Vector2.ZERO:
+	if mov == Vector2.ZERO:
 		last_movement = mov
-		if walkTimer.is_stopped():
-			if sprite.frame >= sprite.hframes - 1:
-				sprite.frame = 0
-			else:
-				sprite.frame += 1
-			walkTimer.start()
-	
+		sprite.play("idle")
+	else:
+		sprite.play("walk")
 	velocity = mov.normalized()*movement_speed
 	move_and_slide()
 

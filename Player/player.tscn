@@ -1,17 +1,59 @@
-[gd_scene load_steps=18 format=3 uid="uid://dncgepmkc4jf4"]
+[gd_scene load_steps=24 format=3 uid="uid://dncgepmkc4jf4"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_37q80"]
-[ext_resource type="Texture2D" uid="uid://doa3scrwgj2oq" path="res://Textures/Player/player_sprite.png" id="1_jefax"]
+[ext_resource type="Texture2D" uid="uid://c215a1m6jvtwc" path="res://Player/FINALrunning_lemon.png" id="2_4tl4i"]
+[ext_resource type="Texture2D" uid="uid://15ur2kd2683" path="res://Textures/Player/a/LEMON.png" id="3_cbe2r"]
 [ext_resource type="PackedScene" uid="uid://xy3cvpwdy828" path="res://Utility/hurt_box.tscn" id="3_gs51i"]
-[ext_resource type="Texture2D" uid="uid://dx7xx6vfahxlq" path="res://Textures/GUI/exp_background.png" id="4_pbpj5"]
-[ext_resource type="Texture2D" uid="uid://dlx33roiu0vlj" path="res://Textures/GUI/exp_progress.png" id="5_5ive2"]
-[ext_resource type="FontFile" uid="uid://cb4e8g30xxp5u" path="res://Font/tenderness.otf" id="6_okx7u"]
-[ext_resource type="AudioStream" uid="uid://ul8hunj8tl2t" path="res://Audio/SoundEffect/levelup.ogg" id="7_wl7d2"]
-[ext_resource type="Texture2D" uid="uid://cj6a5rhwov14" path="res://Textures/GUI/healthbar.png" id="8_flesq"]
-[ext_resource type="Texture2D" uid="uid://da53mspvqfxq4" path="res://Textures/GUI/health.png" id="9_uker1"]
-[ext_resource type="AudioStream" uid="uid://bnv76nm5171dn" path="res://Audio/SoundEffect/Victory.wav" id="10_rwm3p"]
-[ext_resource type="AudioStream" uid="uid://ca6physj6mqei" path="res://Audio/SoundEffect/Lose.ogg" id="11_28kfi"]
+[ext_resource type="Texture2D" uid="uid://bdjl6egowoej2" path="res://Textures/GUI/exp_background.png" id="4_pbpj5"]
+[ext_resource type="Texture2D" uid="uid://u2uw2eoj23po" path="res://Textures/GUI/exp_progress.png" id="5_5ive2"]
+[ext_resource type="FontFile" uid="uid://cnelb5ulw2wpq" path="res://Font/tenderness.otf" id="6_okx7u"]
+[ext_resource type="AudioStream" uid="uid://b1sq3xfcm2e2e" path="res://Audio/SoundEffect/levelup.ogg" id="7_wl7d2"]
+[ext_resource type="Texture2D" uid="uid://bujp3m578qsxl" path="res://Textures/GUI/healthbar.png" id="8_flesq"]
+[ext_resource type="Texture2D" uid="uid://cjy2fwakjdlbf" path="res://Textures/GUI/health.png" id="9_uker1"]
+[ext_resource type="AudioStream" uid="uid://bxawf1wgd8ub0" path="res://Audio/SoundEffect/Victory.wav" id="10_rwm3p"]
+[ext_resource type="AudioStream" uid="uid://bmdfwwsclqy3t" path="res://Audio/SoundEffect/Lose.ogg" id="11_28kfi"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="12_i8esf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pebof"]
+atlas = ExtResource("2_4tl4i")
+region = Rect2(0, 0, 344, 327)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwt4v"]
+atlas = ExtResource("2_4tl4i")
+region = Rect2(1376, 0, 344, 327)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veabi"]
+atlas = ExtResource("2_4tl4i")
+region = Rect2(1720, 0, 344, 327)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0rre"]
+atlas = ExtResource("2_4tl4i")
+region = Rect2(2064, 0, 344, 327)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4sefs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pebof")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwt4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veabi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0rre")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 14.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nffdp"]
 radius = 4.0
@@ -29,14 +71,23 @@ radius = 50.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vwp8"]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_37q80")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_jefax")
-hframes = 2
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 5.68434e-14)
+scale = Vector2(0.0885714, 0.0847953)
+sprite_frames = SubResource("SpriteFrames_4sefs")
+animation = &"walk"
+autoplay = "walk"
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 5.68434e-14)
+scale = Vector2(0.0885714, 0.0847953)
+texture = ExtResource("3_cbe2r")
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 3)
@@ -110,16 +161,21 @@ shape = SubResource("CircleShape2D_6vwp8")
 [node name="GUILayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" type="Control" parent="GUILayer"]
+layout_direction = 1
 layout_mode = 3
 anchors_preset = 0
-offset_right = 640.0
-offset_bottom = 360.0
+offset_left = -24.0
+offset_top = -15.0
+offset_right = 616.0
+offset_bottom = 345.0
 
 [node name="ExperienceBar" type="TextureProgressBar" parent="GUILayer/GUI"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_right = 640.0
-offset_bottom = 40.0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 664.0
+offset_bottom = 56.0
 texture_under = ExtResource("4_pbpj5")
 texture_progress = ExtResource("5_5ive2")
 
@@ -139,10 +195,10 @@ vertical_alignment = 2
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 0
-offset_left = 304.0
-offset_top = 200.0
-offset_right = 336.0
-offset_bottom = 208.0
+offset_left = 329.0
+offset_top = 215.0
+offset_right = 361.0
+offset_bottom = 223.0
 value = 50.0
 texture_over = ExtResource("8_flesq")
 texture_progress = ExtResource("9_uker1")
@@ -239,10 +295,10 @@ text = "Menu"
 [node name="lblTimer" type="Label" parent="GUILayer/GUI"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 280.0
-offset_top = 20.0
-offset_right = 360.0
-offset_bottom = 44.0
+offset_left = 306.0
+offset_top = 29.0
+offset_right = 386.0
+offset_bottom = 53.0
 theme_override_fonts/font = ExtResource("6_okx7u")
 theme_override_font_sizes/font_size = 20
 text = "00:00"

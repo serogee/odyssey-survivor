@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var knockback_recovery = 3.5
 @export var experience = 1
 @export var enemy_damage = 1
+@export var is_level_boss = false
+const FILE_BEGIN = "res://World/world"
 var knockback = Vector2.ZERO
 
 @onready var player = get_tree().get_first_node_in_group("player")
@@ -71,16 +73,28 @@ func _physics_process(_delta):
 			
 
 func death():
-	emit_signal("remove_from_array",self)
-	var enemy_death = death_anim.instantiate()
-	enemy_death.scale = sprite.scale
-	enemy_death.global_position = global_position
-	get_parent().call_deferred("add_child",enemy_death)
-	var new_gem = exp_gem.instantiate()
-	new_gem.global_position = global_position
-	new_gem.experience = experience
-	loot_base.call_deferred("add_child",new_gem)
-	queue_free()
+	if is_level_boss == true:
+		emit_signal("remove_from_array",self)
+		var enemy_death = death_anim.instantiate()
+		enemy_death.scale = sprite.scale
+		enemy_death.global_position = global_position
+		get_parent().call_deferred("add_child",enemy_death)
+		var current_scene_file = get_tree().current_scene.scene_file_path
+		var next_scene_number = current_scene_file.to_int() + 1
+		var next_scene_path = FILE_BEGIN + str(next_scene_number) + ".tscn"
+		get_tree().change_scene_to_file(next_scene_path)
+		queue_free()
+	else:
+		emit_signal("remove_from_array",self)
+		var enemy_death = death_anim.instantiate()
+		enemy_death.scale = sprite.scale
+		enemy_death.global_position = global_position
+		get_parent().call_deferred("add_child",enemy_death)
+		var new_gem = exp_gem.instantiate()
+		new_gem.global_position = global_position
+		new_gem.experience = experience
+		loot_base.call_deferred("add_child",new_gem)
+		queue_free()
 
 func _on_hurt_box_hurt(damage, angle, knockback_amount, effect_type):
 	hp -= damage

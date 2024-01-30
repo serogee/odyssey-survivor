@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://btf7clk4jja87"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_friak"]
-[ext_resource type="Texture2D" uid="uid://ce0hue7fwpa3a" path="res://Textures/Enemy/giant_amoeba_new.png" id="2_f58yx"]
+[ext_resource type="Texture2D" uid="uid://ddj3lsknd6n65" path="res://Textures/Enemy/giant_amoeba_new.png" id="2_f58yx"]
 [ext_resource type="PackedScene" uid="uid://xy3cvpwdy828" path="res://Utility/hurt_box.tscn" id="3_otm2x"]
 [ext_resource type="PackedScene" uid="uid://uhr6mtuisqm1" path="res://Utility/hit_box.tscn" id="4_vpjbj"]
-[ext_resource type="AudioStream" uid="uid://bi7t7cjthnhhc" path="res://Audio/SoundEffect/enemy_hit.ogg" id="5_867w5"]
+[ext_resource type="AudioStream" uid="uid://c3pfigulnm66m" path="res://Audio/SoundEffect/enemy_hit.ogg" id="5_867w5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_24u87"]
 radius = 4.0
@@ -59,11 +59,12 @@ collision_layer = 5
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_friak")
-movement_speed = 150.0
-hp = 99999
+movement_speed = 75.0
+hp = 1
 knockback_recovery = 99999.0
-experience = 100
+experience = 1000
 enemy_damage = 20
+is_level_boss = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)

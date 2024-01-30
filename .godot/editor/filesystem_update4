@@ -8,6 +8,13 @@ res://Enemy/enemy_cyclops.tscn
 res://Player/GUI/damage_indicator.tscn
 res://Utility/hurt_box.tscn
 res://Utility/hit_box.tscn
-res://Player/Attack/tornado.gd
+res://Enemy/TEST/enemy_bozo.tscn
+res://World/world.gd
+res://Player/Attack/javelin.gd
+res://Enemy/enemy_super.tscn
 res://Enemy/enemy.gd
-res://Player/player.gd
+res://Objects/experience_gem.tscn
+res://World/world1.tscn
+res://World/world2.tscn
+res://TitleScreen/menu.gd
+res://World/world3.tscn

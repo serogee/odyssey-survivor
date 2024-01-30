@@ -4,6 +4,7 @@
 script/source = "extends Area2D
 
 @export var damage = 1
+@export var effect_type = \"\"
 @onready var collision = $CollisionShape2D
 @onready var disableTimer = $DisableHitBoxTimer
 
