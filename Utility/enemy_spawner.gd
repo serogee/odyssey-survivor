@@ -9,25 +9,30 @@ extends Node2D
 
 signal changetime(time)
 
+var max_enemies = 100
+
 func _ready():
 	connect("changetime",Callable(player,"change_time"))
 
 func _on_timer_timeout():
 	time += 1
 	var enemy_spawns = spawns
-	for i in enemy_spawns:
-		if time >= i.time_start and time <= i.time_end:
-			if i.spawn_delay_counter < i.enemy_spawn_delay:
-				i.spawn_delay_counter += 1
-			else:
-				i.spawn_delay_counter = 0
-				var new_enemy = i.enemy
-				var counter = 0
-				while  counter < i.enemy_num:
-					var enemy_spawn = new_enemy.instantiate()
-					enemy_spawn.global_position = get_random_position()
-					add_child(enemy_spawn)
-					counter += 1
+	
+
+	if enemy_spawns.size() < max_enemies:
+		for i in enemy_spawns:
+			if time >= i.time_start and time <= i.time_end:
+				if i.spawn_delay_counter < i.enemy_spawn_delay:
+					i.spawn_delay_counter += 1
+				else:
+					i.spawn_delay_counter = 0
+					var new_enemy = i.enemy
+					var counter = 0
+					while  counter < i.enemy_num:
+						var enemy_spawn = new_enemy.instantiate()
+						enemy_spawn.global_position = get_random_position()
+						add_child(enemy_spawn)
+						counter += 1
 	emit_signal("changetime",time)
 
 func get_random_position():
