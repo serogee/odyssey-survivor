@@ -131,7 +131,7 @@ func attack():
 		spawn_javelin()
 
 func _on_hurt_box_hurt(damage, _angle, _knockback, _effect_type):
-	hp -= clamp(damage-armor, 1.0, 999.0)
+	hp -= clamp(damage-armor, 0.0, 999.0)
 	hp_level.text = str("HP:", hp,"/", maxhp)
 	healthBar.max_value = maxhp
 	healthBar.value = hp
