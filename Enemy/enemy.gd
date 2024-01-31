@@ -21,14 +21,16 @@ var knockback = Vector2.ZERO
 var status_effects = {
 	"poison": {
 		"is_active": false,
-		"damage": 1,
+		"damage": 0.1,
 		"duration": 5.0,
 		"timer": 0.0,
+		"damage_interval": 1.0,
+		"last_damage_time": 0.0
 	},
 	"freeze": {
 		"is_active": false,
 		"movement_speed": 50,
-		"duration": 1.0,
+		"duration": 10.0,
 		"timer": 0.0,
 	},
 	"slow": {
@@ -69,9 +71,10 @@ func _physics_process(_delta):
 		if status_effects[effect].timer >= status_effects[effect].duration:
 			status_effects[effect].is_active = false
 		if status_effects["poison"].is_active:
-			_on_hurt_box_hurt(1, Vector2.ZERO, 0, null)
-			
-
+			status_effects["poison"].last_damage_time += _delta
+		if status_effects["poison"].last_damage_time >= status_effects["poison"].damage_interval:
+			_on_hurt_box_hurt(1, Vector2.ZERO, 0, "")
+			status_effects["poison"].last_damage_time = 0.0
 func death():
 	if is_level_boss == true:
 		emit_signal("remove_from_array",self)
@@ -106,6 +109,7 @@ func _on_hurt_box_hurt(damage, angle, knockback_amount, effect_type):
 		status_effects["poison"].is_active = true
 		status_effects["poison"].timer = 0.0
 	spawn_dmgIndicator(damage)
+	print(damage)
 	if hp <= 0:
 		death()
 	else:
