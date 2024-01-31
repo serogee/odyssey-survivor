@@ -45,7 +45,7 @@ var icespear_level = 0
 #Poisonspear
 var poison_ammo = 0
 var poison_baseammo = 0
-var poison_attackspeed = 2
+var poison_attackspeed = 1.5
 var poison_level = 0
 
 #Tornado
@@ -89,7 +89,7 @@ var enemy_close = []
 signal playerdeath
 
 func _ready():
-	upgrade_character("poisonspear1")
+	upgrade_character("icespear1")
 	attack()
 	set_expbar(experience, calculate_experiencecap())
 	_on_hurt_box_hurt(0,0,0,0)

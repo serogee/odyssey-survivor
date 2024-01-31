@@ -3186,7 +3186,7 @@ enemy_spawn_delay = 0
 [node name="World2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
-scale = Vector2(6, 6)
+scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_qxpb1")
 cell_quadrant_size = 128
 format = 2
