@@ -205,9 +205,13 @@ func spawn_javelin():
 		if i.has_method("update_javelin"):
 			i.update_javelin()
 
+func sort_closest(a, b):
+	return (global_position.distance_to(a.global_position)) < (global_position.distance_to(b.global_position))
+	
 func get_random_target():
 	if enemy_close.size() > 0:
-		return enemy_close.pick_random().global_position
+		enemy_close.sort_custom(sort_closest)
+		return enemy_close.front().global_position
 	else:
 		return Vector2.UP
 
