@@ -3183,7 +3183,7 @@ enemy = ExtResource("11_qio04")
 enemy_num = 1
 enemy_spawn_delay = 0
 
-[node name="World" type="Node2D"]
+[node name="World2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(6, 6)

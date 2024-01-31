@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Player/Attack/poison_spear.gd" id="1_8i27u"]
 [ext_resource type="Texture2D" uid="uid://c88lc7vvs1hk1" path="res://Textures/Items/Weapons/poison_spear.png" id="2_eyhcn"]
-[ext_resource type="AudioStream" uid="uid://cl3g2vts3nyt0" path="res://Audio/SoundEffect/ice.wav" id="3_u8wi2"]
+[ext_resource type="AudioStream" uid="uid://beogana5d63xp" path="res://Audio/SoundEffect/ice.wav" id="3_u8wi2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4tiy"]
 size = Vector2(6.36396, 33.234)
