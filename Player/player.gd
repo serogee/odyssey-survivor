@@ -10,7 +10,7 @@ var effect_type = ""
 var experience = 0
 var experience_level = 1
 var collected_experience = 0
-
+var score = 0
 #Attacks
 var iceSpear = preload("res://Player/Attack/ice_spear.tscn")
 var tornado = preload("res://Player/Attack/tornado.tscn")
@@ -69,6 +69,7 @@ var enemy_close = []
 #GUI
 @onready var expBar = get_node("%ExperienceBar")
 @onready var lblLevel = get_node("%lbl_level")
+@onready var lblScore = get_node("%lbl_score")
 @onready var levelPanel = get_node("%LevelUp")
 @onready var upgradeOptions = get_node("%UpgradeOptions")
 @onready var itemOptions = preload("res://Utility/item_option.tscn")
@@ -233,10 +234,12 @@ func _on_collect_area_area_entered(area):
 	if area.is_in_group("loot"):
 		var gem_exp = area.collect()
 		calculate_experience(gem_exp)
+		lblScore.text = str("Score: ", score)
 
 func calculate_experience(gem_exp):
 	var exp_required = calculate_experiencecap()
 	collected_experience += gem_exp
+	score += collected_experience
 	if experience + collected_experience >= exp_required: #level up
 		collected_experience -= exp_required-experience
 		experience_level += 1
@@ -266,7 +269,7 @@ func set_expbar(set_value = 1, set_max_value = 100):
 
 func levelup():
 	sndLevelUp.play()
-	lblLevel.text = str("Level: ",experience_level)
+	lblLevel.text = str("Level: ", experience_level)
 	var tween = levelPanel.create_tween()
 	tween.tween_property(levelPanel,"position",Vector2(50,50),0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
 	tween.play()
