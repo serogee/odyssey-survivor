@@ -1,8 +1,8 @@
+Timer
 AnimatedSprite2D
 AnimationPlayer
 Label
 TileMap
-Timer
 TextureRect
 Panel
 Area2D

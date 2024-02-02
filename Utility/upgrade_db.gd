@@ -132,6 +132,40 @@ const UPGRADES = {
 		"prerequisite": ["tornado3"],
 		"type": "weapon"
 	},
+		"spray1": {
+		"icon": WEAPON_PATH + "tornado.png",
+		"displayname": "Potent Alcohol",
+		"details": "Close ranged attack",
+		"level": "Level: 1",
+		"prerequisite": [],
+		"type": "weapon"
+	},
+	"spray2": {
+		"icon": WEAPON_PATH + "tornado.png",
+		"displayname": "Potent Alcohol",
+		"details": "Adds one more projectile",
+		"level": "Level: 2",
+		"prerequisite": ["spray1"],
+		"type": "weapon"
+		},
+
+	"spray3": {
+		"icon": WEAPON_PATH + "tornado.png",
+		"displayname": "Potent Alcohol",
+		"details": "Increases piercing and damage",
+		"level": "Level: 3",
+		"prerequisite": ["spray2"],
+		"type": "weapon"
+		},
+	
+	"spray4": {
+		"icon": WEAPON_PATH + "tornado.png",
+		"displayname": "Potent Alcohol",
+		"details": "Increases piercing and damage",
+		"level": "Level: 4",
+		"prerequisite": ["spray3"],
+		"type": "weapon"
+		},
 	"armor1": {
 		"icon": ICON_PATH + "helmet_1.png",
 		"displayname": "Armor",
