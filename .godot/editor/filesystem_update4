@@ -1,6 +1,8 @@
+res://Player/player.tscn
+res://Player/player.gd
 res://TitleScreen/menu.tscn
 res://Utility/upgrade_db.tscn
-res://Player/player.gd
 res://Utility/upgrade_db.gd
+res://Player/Attack/soap.gd
 res://Player/Attack/bed.gd
-res://Player/player.tscn
+res://Player/Attack/bed.tscn

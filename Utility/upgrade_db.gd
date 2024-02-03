@@ -166,6 +166,39 @@ const UPGRADES = {
 		"prerequisite": ["spray3"],
 		"type": "weapon"
 		},
+		"soap1": {
+		"icon": WEAPON_PATH + "tornado.png",
+		"displayname": "Slippery Soap",
+		"details": "Throws a large soap that knockbacks enemies",
+		"level": "Level: 1",
+		"prerequisite": [],
+		"type": "weapon"
+		},
+	"soap2": {
+		"icon": WEAPON_PATH + "tornado.png",
+		"displayname": "Slippery Soap",
+		"details": "Adds one more projectile",
+		"level": "Level: 2",
+		"prerequisite": ["soap1"],
+		"type": "weapon"
+		},
+	"soap3": {
+		"icon": WEAPON_PATH + "tornado.png",
+		"displayname": "Slippery Soap",
+		"details": "increases knockback",
+		"level": "Level: 3",
+		"prerequisite": ["soap2"],
+		"type": "weapon"
+		},
+	"soap4": {
+		"icon": WEAPON_PATH + "tornado.png",
+		"displayname": "Slippery Soap",
+		"details": "increases knockback",
+		"level": "Level: 4",
+		"prerequisite": ["soap3"],
+		"type": "weapon"
+		},
+	
 	"armor1": {
 		"icon": ICON_PATH + "helmet_1.png",
 		"displayname": "Armor",
