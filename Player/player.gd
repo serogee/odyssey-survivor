@@ -112,6 +112,7 @@ func movement():
 		sprite.play("idle")
 	else:
 		sprite.play("walk")
+		
 	velocity = mov.normalized()*movement_speed
 	move_and_slide()
 
