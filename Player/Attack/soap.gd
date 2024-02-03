@@ -1,4 +1,3 @@
- #dual alcohol spray
 extends Area2D
 
 var level = 1
@@ -7,7 +6,7 @@ var speed = 100
 var damage = 5
 var knockback_amount = 100
 var attack_size = 1.0
-var effect_type = ""
+var effect_type = "slow"
 
 var target = Vector2.ZERO
 var angle = Vector2.ZERO
@@ -20,33 +19,33 @@ func _ready():
 	rotation = angle.angle() + deg_to_rad(135)
 	match level:
 		1:
-			hp = 3
-			speed = 200
-			damage = 3
-			knockback_amount = 110
+			hp = 999
+			speed = 80
+			damage = 1
+			knockback_amount = 175
 			attack_size = 1.0 * (1 + player.spell_size)
 		2:
-			hp = 3
-			speed = 200
-			damage = 3
-			knockback_amount = 110
+			hp = 999
+			speed = 80
+			damage = 1
+			knockback_amount = 175
 			attack_size = 1.0 * (1 + player.spell_size)
 		3:
-			hp = 5
-			speed = 200
-			damage = 4
-			knockback_amount = 110
+			hp = 999
+			speed = 80
+			damage = 1
+			knockback_amount = 200
 			attack_size = 1.0 * (1 + player.spell_size)
 		4:
-			hp = 6
-			speed = 200
-			damage = 5
-			knockback_amount = 110
+			hp = 999
+			speed = 80
+			damage = 1
+			knockback_amount = 225
 			attack_size = 1.0 * (1 + player.spell_size)
 
 	
 	var tween = create_tween()
-	tween.tween_property(self,"scale",Vector2(1.9,1.9)*attack_size,1).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self,"scale",Vector2(1,1)*attack_size,1).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tween.play()
 
 func _physics_process(delta):
@@ -55,11 +54,10 @@ func _physics_process(delta):
 func enemy_hit(charge = 1):
 	hp -= charge
 	if hp <= 0:
-		die()
+		emit_signal("remove_from_array",self)
+		queue_free()
+
 
 func _on_timer_timeout():
-	die()
-
-func die():
 	emit_signal("remove_from_array",self)
 	queue_free()
