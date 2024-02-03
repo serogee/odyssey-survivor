@@ -64,7 +64,7 @@ func _physics_process(_delta):
 		sprite.flip_h = true
 	elif direction.x < -0.1:
 		sprite.flip_h = false
-	
+		
 	for effect in status_effects.keys():
 		if status_effects[effect].is_active:
 			status_effects[effect].timer += _delta

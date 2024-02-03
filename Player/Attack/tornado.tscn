@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bis78tmxnqw4c"]
+[gd_scene load_steps=7 format=3 uid="uid://bis78tmxnqw4c"]
 
-[ext_resource type="Texture2D" uid="uid://c5y0r4crcqjdp" path="res://Textures/Items/Weapons/tornado.png" id="1_7stu1"]
+[ext_resource type="Texture2D" uid="uid://d3sg0kfbj0ium" path="res://Textures/Items/Weapons/tornado.png" id="1_7stu1"]
 [ext_resource type="Script" path="res://Player/Attack/tornado.gd" id="1_x0aq0"]
-[ext_resource type="AudioStream" uid="uid://r7omweq2u12i" path="res://Audio/SoundEffect/tornado.ogg" id="3_ihvf8"]
+[ext_resource type="AudioStream" uid="uid://ya5qnscymdtq" path="res://Audio/SoundEffect/tornado.ogg" id="3_ihvf8"]
+[ext_resource type="Texture2D" uid="uid://b6pqbe4rhldk0" path="res://World/Light.png" id="4_40mxe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dd51k"]
 size = Vector2(17, 26)
+
+[sub_resource type="Curve" id="Curve_c153o"]
+_data = [Vector2(0.176471, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Tornado" type="Area2D" groups=["attack"]]
 top_level = true
@@ -28,5 +33,19 @@ autostart = true
 [node name="snd_attack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ihvf8")
 autoplay = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 32
+explosiveness = 1.0
+texture = ExtResource("4_40mxe")
+emission_shape = 1
+emission_sphere_radius = 64.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 188.85
+initial_velocity_max = 1000.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_c153o")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

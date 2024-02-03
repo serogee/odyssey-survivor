@@ -1,5 +1,8 @@
 Timer
 AnimatedSprite2D
+CPUParticles2D
+GPUParticles2D
+Sprite2D
 AnimationPlayer
 Label
 TileMap
@@ -17,7 +20,6 @@ Control
 CanvasLayer
 CollisionShape2D
 Node2D
-Sprite2D
 AudioStreamPlayer2D
 Camera2D
 CharacterBody2D
