@@ -1,3 +1,4 @@
+Timer
 AnimatedSprite2D
 CPUParticles2D
 GPUParticles2D
@@ -5,7 +6,6 @@ Sprite2D
 AnimationPlayer
 Label
 TileMap
-Timer
 TextureRect
 Panel
 Area2D

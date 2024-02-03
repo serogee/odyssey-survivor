@@ -143,14 +143,6 @@ wait_time = 1.5
 unique_name_in_owner = true
 wait_time = 0.075
 
-[node name="SoapTimer" type="Timer" parent="Attack"]
-unique_name_in_owner = true
-wait_time = 1.5
-
-[node name="SoapAttackTimer" type="Timer" parent="Attack/SoapTimer"]
-unique_name_in_owner = true
-wait_time = 0.078
-
 [node name="EnemyDetectionArea" type="Area2D" parent="."]
 visible = false
 collision_layer = 4
@@ -216,7 +208,7 @@ offset_right = 367.0
 offset_bottom = 62.0
 theme_override_fonts/font = ExtResource("6_okx7u")
 theme_override_font_sizes/font_size = 16
-text = "Score:0"
+text = "SCORE:0"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -361,8 +353,6 @@ columns = 10
 [connection signal="timeout" from="Attack/PoisonSpearTimer/PoisonSpearAttackTimer" to="." method="_on_poison_spear_attack_timer_timeout"]
 [connection signal="timeout" from="Attack/SprayTimer" to="." method="_on_spray_timer_timeout"]
 [connection signal="timeout" from="Attack/SprayTimer/SprayAttackTimer" to="." method="_on_spray_attack_timer_timeout"]
-[connection signal="timeout" from="Attack/SoapTimer" to="." method="_on_soap_timer_timeout"]
-[connection signal="timeout" from="Attack/SoapTimer/SoapAttackTimer" to="." method="_on_soap_attack_timer_timeout"]
 [connection signal="body_entered" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_entered"]
 [connection signal="body_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_exited"]
 [connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
