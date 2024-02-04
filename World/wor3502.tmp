@@ -1320,6 +1320,7 @@ tile_map = NodePath("../../TileMap")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_oikmv")]
 spawns = Array[ExtResource("6_2cdk2")]([SubResource("Resource_cgyfu"), SubResource("Resource_03m25"), SubResource("Resource_ij20a"), SubResource("Resource_68oxv"), SubResource("Resource_rx6id"), SubResource("Resource_l8y0x"), SubResource("Resource_daq1w"), SubResource("Resource_0gpiy"), SubResource("Resource_4teun"), SubResource("Resource_t2np8")])
+time = null
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 
@@ -1329,11 +1330,5 @@ stream = ExtResource("12_gcu0p")
 volume_db = -15.0
 autoplay = true
 script = ExtResource("13_k4b0x")
-
-[node name="SpawnArea" type="ReferenceRect" parent="."]
-offset_left = -449.0
-offset_top = -403.0
-offset_right = 443.0
-offset_bottom = 486.0
 
 [connection signal="playerdeath" from="Player" to="snd_Music" method="_on_player_playerdeath"]

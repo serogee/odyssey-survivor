@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bok7kd2psi5gl" path="res://Enemy/enemy_cyclops.tscn" id="7_unri0"]
 [ext_resource type="PackedScene" uid="uid://hcjnrdsb563h" path="res://Enemy/enemy_juggernaut.tscn" id="8_ltymd"]
 [ext_resource type="PackedScene" uid="uid://btf7clk4jja87" path="res://Enemy/enemy_super.tscn" id="9_xs42h"]
-[ext_resource type="AudioStream" uid="uid://bbufl4r1ou1rw" path="res://Audio/Music/battleThemeA.mp3" id="10_rk3we"]
+[ext_resource type="AudioStream" uid="uid://cscd5iowwjdy0" path="res://Audio/Music/battleThemeA.mp3" id="10_rk3we"]
 [ext_resource type="Script" path="res://Audio/Music/snd_Music.gd" id="11_ovtx6"]
 [ext_resource type="Texture2D" uid="uid://jnricv5ymb3g" path="res://World/Tilemaps/College Lobby.png" id="11_v0vc0"]
 
@@ -512,5 +512,11 @@ stream = ExtResource("10_rk3we")
 volume_db = -15.0
 autoplay = true
 script = ExtResource("11_ovtx6")
+
+[node name="SpawnArea" type="ReferenceRect" parent="."]
+offset_left = -1514.0
+offset_top = -1354.0
+offset_right = 1485.0
+offset_bottom = 1687.0
 
 [connection signal="playerdeath" from="Player" to="snd_Music" method="_on_player_playerdeath"]
