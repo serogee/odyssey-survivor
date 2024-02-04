@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 ReferenceRect
+=======
+Timer
+>>>>>>> 8531a6ee0d1de89562e8a553f4c498e2cdaa4777
 AnimatedSprite2D
+CPUParticles2D
+GPUParticles2D
+Sprite2D
 AnimationPlayer
 Label
 TileMap
-Timer
 TextureRect
 Panel
 Area2D
@@ -18,7 +24,6 @@ Control
 CanvasLayer
 CollisionShape2D
 Node2D
-Sprite2D
 AudioStreamPlayer2D
 Camera2D
 CharacterBody2D

@@ -16,6 +16,8 @@ var iceSpear = preload("res://Player/Attack/ice_spear.tscn")
 var tornado = preload("res://Player/Attack/tornado.tscn")
 var javelin = preload("res://Player/Attack/javelin.tscn")
 var poisonSpear = preload("res://Player/Attack/poison_spear.tscn")
+var spray = preload("res://Player/Attack/bed.tscn")
+var soap = preload("res://Player/Attack/soap.tscn")
 
 #AttackNodes
 @onready var iceSpearTimer = get_node("%IceSpearTimer")
@@ -25,7 +27,10 @@ var poisonSpear = preload("res://Player/Attack/poison_spear.tscn")
 @onready var tornadoTimer = get_node("%TornadoTimer")
 @onready var tornadoAttackTimer = get_node("%TornadoAttackTimer")
 @onready var javelinBase = get_node("%JavelinBase")
-
+@onready var SprayTimer = get_node("%SprayTimer")
+@onready var SprayAttackTimer = get_node("%SprayAttackTimer")
+@onready var SoapTimer = get_node("%SoapTimer")
+@onready var SoapAttackTimer = get_node("%SoapAttackTimer")
 #UPGRADES
 var collected_upgrades = []
 var upgrade_options = []
@@ -58,6 +63,17 @@ var tornado_level = 0
 var javelin_ammo = 0
 var javelin_level = 0
 
+#spray
+var spray_ammo = 0
+var spray_baseammo = 1
+var spray_attackspeed = 3
+var spray_level = 0
+
+#soap
+var soap_ammo = 0
+var soap_baseammo = 1
+var soap_attackspeed = 8
+var soap_level = 0
 
 #Enemy Related
 var enemy_close = []
@@ -90,7 +106,7 @@ var enemy_close = []
 signal playerdeath
 
 func _ready():
-	upgrade_character("icespear1")
+	upgrade_character("spray1")
 	attack()
 	set_expbar(experience, calculate_experiencecap())
 	_on_hurt_box_hurt(0,0,0,0)
@@ -112,6 +128,7 @@ func movement():
 		sprite.play("idle")
 	else:
 		sprite.play("walk")
+		
 	velocity = mov.normalized()*movement_speed
 	move_and_slide()
 
@@ -130,6 +147,14 @@ func attack():
 			tornadoTimer.start()
 	if javelin_level > 0:
 		spawn_javelin()
+	if spray_level > 0:
+		SprayTimer.wait_time = spray_attackspeed * (1-spell_cooldown)
+		if SprayTimer.is_stopped():
+			SprayTimer.start()
+	if soap_level > 0:
+		SoapTimer.wait_time = soap_attackspeed * (1-spell_cooldown)
+		if SoapTimer.is_stopped():
+			SoapTimer.start()
 
 func _on_hurt_box_hurt(damage, _angle, _knockback, _effect_type):
 	hp -= clamp(damage-armor, 0.0, 999.0)
@@ -205,6 +230,41 @@ func spawn_javelin():
 	for i in get_javelins:
 		if i.has_method("update_javelin"):
 			i.update_javelin()
+func _on_spray_timer_timeout():
+	spray_ammo += spray_baseammo + additional_attacks
+	SprayAttackTimer.start()
+
+func _on_spray_attack_timer_timeout():
+	if spray_ammo > 0:
+		var spray_attack = spray.instantiate() 
+		spray_attack.position
+		spray_attack.target = get_random_target()
+		spray_attack.level = spray_level
+		add_child(spray_attack)
+		spray_ammo -= 1
+		if spray_ammo > 0:
+			SprayAttackTimer.start()
+		else:
+			SprayAttackTimer.stop()
+
+func _on_soap_timer_timeout():
+	soap_ammo += soap_baseammo + additional_attacks
+	SoapAttackTimer.start()
+
+
+func _on_soap_attack_timer_timeout():
+	pass
+	if soap_ammo > 0:
+		var soap_attack = soap.instantiate() 
+		soap_attack.position = position
+		soap_attack.target = get_random_target()
+		soap_attack.level - soap_level
+		add_child(soap_attack)
+		soap_ammo -= 1
+		if soap_ammo > 0:
+			SoapAttackTimer.start()
+		else:
+			SoapAttackTimer.stop()
 
 func sort_closest(a, b):
 	return (global_position.distance_to(a.global_position)) < (global_position.distance_to(b.global_position))
@@ -339,6 +399,25 @@ func upgrade_character(upgrade):
 			spell_cooldown += 0.05
 		"ring1","ring2":
 			additional_attacks += 1
+		"spray1":
+			spray_level = 1
+			
+		"spray2":
+			spray_level = 2
+			spray_baseammo += 1
+		"spray3":
+			spray_level = 3
+		"spray4":
+			spray_level = 4
+		"soap1":
+			soap_level = 1
+		"soap2":
+			soap_level = 2
+			soap_baseammo += 1
+		"soap3":
+			soap_level = 3
+		"soap4":
+			soap_level = 4
 		"food":
 			hp += 20
 			hp = clamp(hp,0,maxhp)
@@ -423,3 +502,5 @@ func death():
 func _on_btn_menu_click_end():
 	get_tree().paused = false
 	var _level = get_tree().change_scene_to_file("res://TitleScreen/menu.tscn")
+
+

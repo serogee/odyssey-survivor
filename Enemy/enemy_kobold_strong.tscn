@@ -1,10 +1,46 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbvhxvk65o8el"]
+[gd_scene load_steps=17 format=3 uid="uid://bbvhxvk65o8el"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_dnf7l"]
-[ext_resource type="Texture2D" uid="uid://b3hvvindvaacd" path="res://Textures/Enemy/kolbold_strong.png" id="2_xd60h"]
+[ext_resource type="Texture2D" uid="uid://44a7lr7li7w" path="res://Textures/Enemy/cockroach guy idle.png" id="2_aeqld"]
 [ext_resource type="PackedScene" uid="uid://xy3cvpwdy828" path="res://Utility/hurt_box.tscn" id="3_avoap"]
 [ext_resource type="PackedScene" uid="uid://uhr6mtuisqm1" path="res://Utility/hit_box.tscn" id="4_e7l5k"]
-[ext_resource type="AudioStream" uid="uid://bi7t7cjthnhhc" path="res://Audio/SoundEffect/enemy_hit.ogg" id="5_tph6t"]
+[ext_resource type="AudioStream" uid="uid://c3pfigulnm66m" path="res://Audio/SoundEffect/enemy_hit.ogg" id="5_tph6t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l573n"]
+atlas = ExtResource("2_aeqld")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcn1r"]
+atlas = ExtResource("2_aeqld")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inhmy"]
+atlas = ExtResource("2_aeqld")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ojq4"]
+atlas = ExtResource("2_aeqld")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bb4dc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l573n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcn1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inhmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ojq4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_24u87"]
 radius = 3.0
@@ -12,35 +48,11 @@ height = 12.0
 
 [sub_resource type="Animation" id="Animation_xfnyu"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
 [sub_resource type="Animation" id="Animation_w8hns"]
 resource_name = "walk"
 length = 0.6
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 0]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_regpg"]
 _data = {
@@ -63,9 +75,10 @@ movement_speed = 28.0
 hp = 20
 enemy_damage = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_xd60h")
-hframes = 2
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bb4dc")
+autoplay = "default"
+frame_progress = 0.864871
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 3)

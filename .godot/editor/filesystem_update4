@@ -1,5 +1,20 @@
+<<<<<<< HEAD
 res://TitleScreen/menu.tscn
+=======
+res://Enemy/enemy_mommy.tscn
+res://Enemy/enemy.gd
+>>>>>>> 8531a6ee0d1de89562e8a553f4c498e2cdaa4777
 res://World/world1.tscn
+res://Enemy/ratt.tscn
 res://World/world2.tscn
 res://World/world3.tscn
+<<<<<<< HEAD
 res://World/world.tscn
+=======
+res://Player/player.tscn
+res://Player/Attack/ice_spear.tscn
+res://Player/Attack/tornado.tscn
+res://Enemy/enemy_kobold_strong.tscn
+res://Player/player.gd
+res://Player/Camera2D.gd
+>>>>>>> 8531a6ee0d1de89562e8a553f4c498e2cdaa4777

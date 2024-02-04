@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxxxbtrmm82ie"]
+
+[ext_resource type="Script" path="res://Player/Attack/soap.gd" id="1_p76ov"]
+[ext_resource type="Texture2D" uid="uid://b6x205ajei3p5" path="res://Textures/Items/Gems/Gem_red.png" id="2_adhah"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81f0o"]
+size = Vector2(20, 25)
+
+[node name="soap" type="Area2D" groups=["attack"]]
+top_level = true
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_p76ov")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -0.785398
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("2_adhah")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -0.785398
+shape = SubResource("RectangleShape2D_81f0o")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
