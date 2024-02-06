@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://ba2claihwes2y" path="res://Utility/enemy_spawner.tscn" id="4_oikmv"]
 [ext_resource type="PackedScene" uid="uid://bo4pe3ceanbg5" path="res://Enemy/TEST/enemy_bozo.tscn" id="5_18j0r"]
 [ext_resource type="Script" path="res://Utility/spawn_info.gd" id="6_2cdk2"]
-[ext_resource type="PackedScene" uid="uid://mdcp08aill7l" path="res://Enemy/enemy_mommy.tscn" id="6_y8pff"]
+[ext_resource type="PackedScene" path="res://Enemy/enemy_mommy.tscn" id="6_y8pff"]
 [ext_resource type="PackedScene" uid="uid://bbvhxvk65o8el" path="res://Enemy/enemy_kobold_strong.tscn" id="8_5l65i"]
-[ext_resource type="PackedScene" uid="uid://crma6tjdxonjn" path="res://Enemy/ratt.tscn" id="8_jrbty"]
+[ext_resource type="PackedScene" path="res://Enemy/ratt.tscn" id="8_jrbty"]
 [ext_resource type="PackedScene" uid="uid://bok7kd2psi5gl" path="res://Enemy/enemy_cyclops.tscn" id="9_dhyrr"]
 [ext_resource type="PackedScene" uid="uid://hcjnrdsb563h" path="res://Enemy/enemy_juggernaut.tscn" id="10_n50wh"]
 [ext_resource type="PackedScene" uid="uid://btf7clk4jja87" path="res://Enemy/enemy_super.tscn" id="11_8x4hk"]
@@ -3284,7 +3284,7 @@ enemy = ExtResource("11_8x4hk")
 enemy_num = 1
 enemy_spawn_delay = 0
 
-[node name="World" type="Node2D"]
+[node name="World2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(3, 3)
