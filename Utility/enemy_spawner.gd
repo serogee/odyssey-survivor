@@ -13,6 +13,7 @@ var max_enemies = 100
 
 func _ready():
 	connect("changetime",Callable(player,"change_time"))
+	get_spawn_area()
 
 func _on_timer_timeout():
 	time += 1
@@ -34,6 +35,14 @@ func _on_timer_timeout():
 						add_child(enemy_spawn)
 						counter += 1
 	emit_signal("changetime",time)
+
+var spawn_area = null
+
+func get_spawn_area():
+	if spawn_area == null:
+		var spawn_area_reference = $"../SpawnArea"
+		spawn_area = Rect2(get_parent().to_global(spawn_area_reference.position), get_parent().to_global(spawn_area_reference.size))
+	return spawn_area
 
 func get_random_position():
 	var vpr = get_viewport_rect().size * randf_range(1.1,1.4)
@@ -58,7 +67,42 @@ func get_random_position():
 		"left":
 			spawn_pos1 = top_left
 			spawn_pos2 = bottom_left
-	
+	# print("Player: ", player.global_position)
+	spawn_area = get_spawn_area()
+	if spawn_area == null: 
+		pass
+		# print("Spawn area is null")
+	else:
+		# print(spawn_area.position, " ", spawn_area.end)
+		if spawn_pos1.x < spawn_area.position.x: # If too far to the left
+			# print("Too far left")
+			spawn_pos1.x = spawn_area.position.x
+		if spawn_pos1.x > spawn_area.end.x: # Too far to the right
+			# print("Too far right")
+			spawn_pos1.x = spawn_area.end.x
+		if spawn_pos1.y < spawn_area.position.y: # Too far above
+			# print("Too far up")
+			spawn_pos1.y = spawn_area.position.y
+		if spawn_pos1.y > spawn_area.end.y: # Too far below
+			# print("Too far down")
+			spawn_pos1.y = spawn_area.end.y
+
+		if spawn_pos2.x < spawn_area.position.x: # If too far to the left
+			# print("Too far left")
+			spawn_pos2.x = spawn_area.position.x
+		if spawn_pos2.x > spawn_area.end.x: # Too far to the right
+			# print("Too far right")
+			spawn_pos2.x = spawn_area.end.x
+		if spawn_pos2.y < spawn_area.position.y: # Too far above
+			# print("Too far up")
+			spawn_pos2.y = spawn_area.position.y
+		if spawn_pos2.y > spawn_area.end.y: # Too far below
+			# print("Too far down")
+			spawn_pos2.y = spawn_area.end.y
+
+	# print(spawn_pos1, spawn_pos2)
 	var x_spawn = randf_range(spawn_pos1.x, spawn_pos2.x)
 	var y_spawn = randf_range(spawn_pos1.y,spawn_pos2.y)
-	return Vector2(x_spawn,y_spawn)
+	var spawn = Vector2(x_spawn,y_spawn)
+	# print("Spawn: ", spawn)
+	return spawn

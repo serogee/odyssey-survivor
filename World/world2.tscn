@@ -3183,7 +3183,7 @@ enemy = ExtResource("11_qio04")
 enemy_num = 1
 enemy_spawn_delay = 0
 
-[node name="World" type="Node2D"]
+[node name="World2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(3, 3)
@@ -3209,5 +3209,11 @@ stream = ExtResource("12_am7il")
 volume_db = -15.0
 autoplay = true
 script = ExtResource("13_uk7oc")
+
+[node name="SpawnArea" type="ReferenceRect" parent="."]
+offset_left = -595.0
+offset_top = -595.0
+offset_right = 531.0
+offset_bottom = 539.0
 
 [connection signal="playerdeath" from="Player" to="snd_Music" method="_on_player_playerdeath"]
