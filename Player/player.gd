@@ -72,7 +72,7 @@ var spray_level = 0
 #soap
 var soap_ammo = 0
 var soap_baseammo = 1
-var soap_attackspeed = 8
+var soap_attackspeed = 3
 var soap_level = 0
 
 #Enemy Related
@@ -106,7 +106,7 @@ var enemy_close = []
 signal playerdeath
 
 func _ready():
-	upgrade_character("spray1")
+	upgrade_character("icespear1")
 	attack()
 	set_expbar(experience, calculate_experiencecap())
 	_on_hurt_box_hurt(0,0,0,0)
@@ -291,11 +291,23 @@ func _on_grab_area_area_entered(area):
 		area.target = self
 
 func _on_collect_area_area_entered(area):
-	if area.is_in_group("loot"):
+	if area.is_in_group("loot") and area.is_in_group("exp"):
 		var gem_exp = area.collect()
 		calculate_experience(gem_exp)
 		lblScore.text = str("Score: ", score)
-
+	elif area.is_in_group("loot") and area.is_in_group("food"):
+		var food = area.collect()
+		var hpfood = 20
+		hp += hpfood
+		if hp >= maxhp:
+			hp += maxhp - hp 
+			hp_level.text = str("HP:", hp,"/", maxhp)
+			healthBar.max_value = maxhp
+			healthBar.value = hp
+		else:
+			hp_level.text = str("HP:", hp,"/", maxhp)
+			healthBar.max_value = maxhp
+			healthBar.value = hp
 func calculate_experience(gem_exp):
 	var exp_required = calculate_experiencecap()
 	collected_experience += gem_exp
@@ -331,7 +343,7 @@ func levelup():
 	sndLevelUp.play()
 	lblLevel.text = str("Level: ", experience_level)
 	var tween = levelPanel.create_tween()
-	tween.tween_property(levelPanel,"position",Vector2(50,50),0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
+	tween.tween_property(levelPanel,"position",Vector2(168,95),0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
 	tween.play()
 	levelPanel.visible = true
 	var options = 0
@@ -401,7 +413,6 @@ func upgrade_character(upgrade):
 			additional_attacks += 1
 		"spray1":
 			spray_level = 1
-			
 		"spray2":
 			spray_level = 2
 			spray_baseammo += 1
@@ -429,7 +440,7 @@ func upgrade_character(upgrade):
 	upgrade_options.clear()
 	collected_upgrades.append(upgrade)
 	levelPanel.visible = false
-	levelPanel.position = Vector2(800,50)
+	levelPanel.position = Vector2(500,200)
 	get_tree().paused = false
 	calculate_experience(0)
 	

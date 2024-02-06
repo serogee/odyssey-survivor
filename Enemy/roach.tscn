@@ -1,0 +1,114 @@
+[gd_scene load_steps=17 format=3 uid="uid://cdtxbf0hupdq4"]
+
+[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_ov12r"]
+[ext_resource type="Texture2D" uid="uid://pvd1f5ogqw85" path="res://Textures/Enemy/locust guy idle.png" id="2_gfh7e"]
+[ext_resource type="PackedScene" uid="uid://xy3cvpwdy828" path="res://Utility/hurt_box.tscn" id="3_avneu"]
+[ext_resource type="PackedScene" uid="uid://uhr6mtuisqm1" path="res://Utility/hit_box.tscn" id="4_v7vhb"]
+[ext_resource type="AudioStream" uid="uid://c3pfigulnm66m" path="res://Audio/SoundEffect/enemy_hit.ogg" id="5_m6k53"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tker4"]
+atlas = ExtResource("2_gfh7e")
+region = Rect2(0, 0, 56, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hs2o"]
+atlas = ExtResource("2_gfh7e")
+region = Rect2(56, 0, 56, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87v2s"]
+atlas = ExtResource("2_gfh7e")
+region = Rect2(112, 0, 56, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6kqf"]
+atlas = ExtResource("2_gfh7e")
+region = Rect2(168, 0, 56, 67)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bb4dc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tker4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hs2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87v2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6kqf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_24u87"]
+radius = 3.0
+height = 12.0
+
+[sub_resource type="Animation" id="Animation_xfnyu"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_w8hns"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_regpg"]
+_data = {
+"RESET": SubResource("Animation_xfnyu"),
+"walk": SubResource("Animation_w8hns")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rborl"]
+size = Vector2(15, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucec4"]
+size = Vector2(15, 21)
+
+[node name="roach" type="CharacterBody2D"]
+collision_layer = 5
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_ov12r")
+movement_speed = 30.0
+enemy_damage = 2
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.76837e-06, -1.19209e-07)
+scale = Vector2(0.268, 0.306)
+sprite_frames = SubResource("SpriteFrames_bb4dc")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 3)
+shape = SubResource("CapsuleShape2D_24u87")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_regpg")
+}
+
+[node name="HurtBox" parent="." instance=ExtResource("3_avneu")]
+collision_mask = 4
+HurtBoxType = 1
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_rborl")
+
+[node name="HitBox" parent="." instance=ExtResource("4_v7vhb")]
+collision_layer = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_ucec4")
+
+[node name="snd_hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_m6k53")
+volume_db = -20.0
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

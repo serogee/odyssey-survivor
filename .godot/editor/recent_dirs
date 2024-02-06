@@ -1,11 +1,11 @@
 res://Textures/Enemy
+res://Textures/Items/Weapons
+res://TitleScreen
 res://Player
 res://World/Tilemaps
 res://Textures/Player
 res://Player/GUI
-res://Textures/Items/Weapons
 res://Player/Attack
-res://TitleScreen
 E:/GameDev/asesprite
 res://Audio/Music
 res://Utility

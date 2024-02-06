@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxxxbtrmm82ie"]
 
 [ext_resource type="Script" path="res://Player/Attack/soap.gd" id="1_p76ov"]
-[ext_resource type="Texture2D" uid="uid://b6x205ajei3p5" path="res://Textures/Items/Gems/Gem_red.png" id="2_adhah"]
+[ext_resource type="Texture2D" uid="uid://dhcx7s7c5hodj" path="res://Textures/Items/Gems/Gem_red.png" id="2_adhah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81f0o"]
 size = Vector2(20, 25)

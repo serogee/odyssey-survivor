@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wytta"]
 size = Vector2(20, 22)
 
-[node name="ExperienceGem" type="Area2D" groups=["loot"]]
+[node name="ExperienceGem" type="Area2D" groups=["exp", "loot"]]
 scale = Vector2(0.5, 0.5)
 collision_layer = 8
 collision_mask = 0

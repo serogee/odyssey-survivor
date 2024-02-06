@@ -133,7 +133,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 		"spray1": {
-		"icon": WEAPON_PATH + "tornado.png",
+		"icon": WEAPON_PATH + "fireball.aseprite",
 		"displayname": "Potent Alcohol",
 		"details": "Close ranged attack",
 		"level": "Level: 1",
@@ -141,7 +141,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"spray2": {
-		"icon": WEAPON_PATH + "tornado.png",
+		"icon": WEAPON_PATH + "fireball.aseprite",
 		"displayname": "Potent Alcohol",
 		"details": "Adds one more projectile",
 		"level": "Level: 2",
@@ -150,7 +150,7 @@ const UPGRADES = {
 		},
 
 	"spray3": {
-		"icon": WEAPON_PATH + "tornado.png",
+		"icon": WEAPON_PATH + "fireball.aseprite",
 		"displayname": "Potent Alcohol",
 		"details": "Increases piercing and damage",
 		"level": "Level: 3",
@@ -159,7 +159,7 @@ const UPGRADES = {
 		},
 	
 	"spray4": {
-		"icon": WEAPON_PATH + "tornado.png",
+		"icon": WEAPON_PATH + "fireball.aseprite",
 		"displayname": "Potent Alcohol",
 		"details": "Increases piercing and damage",
 		"level": "Level: 4",
@@ -167,7 +167,7 @@ const UPGRADES = {
 		"type": "weapon"
 		},
 		"soap1": {
-		"icon": WEAPON_PATH + "tornado.png",
+		"icon": WEAPON_PATH + "soap.png",
 		"displayname": "Slippery Soap",
 		"details": "Throws a large soap that knockbacks enemies",
 		"level": "Level: 1",
@@ -175,7 +175,7 @@ const UPGRADES = {
 		"type": "weapon"
 		},
 	"soap2": {
-		"icon": WEAPON_PATH + "tornado.png",
+		"icon": WEAPON_PATH + "soap.png",
 		"displayname": "Slippery Soap",
 		"details": "Adds one more projectile",
 		"level": "Level: 2",
@@ -183,7 +183,7 @@ const UPGRADES = {
 		"type": "weapon"
 		},
 	"soap3": {
-		"icon": WEAPON_PATH + "tornado.png",
+		"icon": WEAPON_PATH + "soap.png",
 		"displayname": "Slippery Soap",
 		"details": "increases knockback",
 		"level": "Level: 3",
@@ -191,7 +191,7 @@ const UPGRADES = {
 		"type": "weapon"
 		},
 	"soap4": {
-		"icon": WEAPON_PATH + "tornado.png",
+		"icon": WEAPON_PATH + "soap.png",
 		"displayname": "Slippery Soap",
 		"details": "increases knockback",
 		"level": "Level: 4",

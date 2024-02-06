@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bcq6an2ifllqs" path="res://TitleScreen/START (1).png" id="3_co4c8"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="3_kwsdd"]
 [ext_resource type="Texture2D" uid="uid://dh52ws5r508dg" path="res://TitleScreen/EXIT.png" id="4_amfiu"]
-[ext_resource type="Texture2D" uid="uid://bv8j305u3s8pr" path="res://TitleScreen/SURVIVAL ODYSSEY.png" id="6_bw1yi"]
+[ext_resource type="Texture2D" uid="uid://x6ypfw6n2ska" path="res://TitleScreen/SURVIVAL_ODYSSEY_1.png" id="6_v8ats"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uvaka"]
 
@@ -57,7 +57,7 @@ texture = ExtResource("3_2j5go")
 [node name="Title" type="Sprite2D" parent="."]
 position = Vector2(325, 234)
 scale = Vector2(0.396574, 0.393253)
-texture = ExtResource("6_bw1yi")
+texture = ExtResource("6_v8ats")
 
 [connection signal="click_end" from="btn_play" to="." method="_on_btn_play_click_end"]
 [connection signal="click_end" from="btn_exit" to="." method="_on_btn_exit_click_end"]

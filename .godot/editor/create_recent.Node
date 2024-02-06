@@ -1,13 +1,14 @@
-<<<<<<< HEAD
-ReferenceRect
-=======
-Timer
->>>>>>> 8531a6ee0d1de89562e8a553f4c498e2cdaa4777
+Button
+Control
+Sprite2D
+Container
 AnimatedSprite2D
+AnimationPlayer
+Camera2D
+ReferenceRect
+Timer
 CPUParticles2D
 GPUParticles2D
-Sprite2D
-AnimationPlayer
 Label
 TileMap
 TextureRect
@@ -15,15 +16,12 @@ Panel
 Area2D
 AudioStreamPlayer
 ColorRect
-Button
 GridContainer
 TextureProgressBar
 Node
 VBoxContainer
-Control
 CanvasLayer
 CollisionShape2D
 Node2D
 AudioStreamPlayer2D
-Camera2D
 CharacterBody2D
