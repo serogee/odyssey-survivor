@@ -66,13 +66,13 @@ var javelin_level = 0
 #spray
 var spray_ammo = 0
 var spray_baseammo = 1
-var spray_attackspeed = 3
+var spray_attackspeed = 1.5
 var spray_level = 0
 
 #soap
 var soap_ammo = 0
 var soap_baseammo = 1
-var soap_attackspeed = 3
+var soap_attackspeed = 5
 var soap_level = 0
 
 #Enemy Related
@@ -390,7 +390,6 @@ func upgrade_character(upgrade):
 			tornado_attackspeed -= 0.5
 		"tornado4":
 			tornado_level = 4
-			tornado_baseammo += 1
 		"javelin1":
 			javelin_level = 1
 			javelin_ammo = 1
@@ -409,7 +408,7 @@ func upgrade_character(upgrade):
 			spell_size += 0.10
 		"scroll1","scroll2","scroll3","scroll4":
 			spell_cooldown += 0.05
-		"ring1","ring2":
+		"ring1":
 			additional_attacks += 1
 		"spray1":
 			spray_level = 1

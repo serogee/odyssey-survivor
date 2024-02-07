@@ -21,7 +21,6 @@ flip_v = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5.00031, 0.0311288)
 rotation = -0.00475533
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_o87cf")
 
 [node name="Timer" type="Timer" parent="."]
