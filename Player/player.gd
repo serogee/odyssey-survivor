@@ -66,7 +66,7 @@ var javelin_level = 0
 #spray
 var spray_ammo = 0
 var spray_baseammo = 1
-var spray_attackspeed = 1.5
+var spray_attackspeed = 1.8
 var spray_level = 0
 
 #soap
