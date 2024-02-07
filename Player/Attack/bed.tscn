@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://duh8jtos12g35"]
 
 [ext_resource type="Script" path="res://Player/Attack/bed.gd" id="1_okcan"]
-[ext_resource type="Texture2D" uid="uid://d3sg0kfbj0ium" path="res://Textures/Items/Weapons/tornado.png" id="2_33tkm"]
+[ext_resource type="Texture2D" uid="uid://t5lq5wyufbhi" path="res://Textures/Items/Weapons/fireball.aseprite" id="2_8vtd5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o87cf"]
-size = Vector2(33.8146, 39.598)
+size = Vector2(69.9995, 39.598)
 
 [node name="bed" type="Area2D" groups=["attack"]]
 scale = Vector2(0.1, 0.1)
@@ -14,12 +14,14 @@ script = ExtResource("1_okcan")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.952941, 0.952941, 0.952941, 1)
-rotation = -0.785398
 scale = Vector2(1.61193, 1.45938)
-texture = ExtResource("2_33tkm")
+texture = ExtResource("2_8vtd5")
+flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -0.785398
+position = Vector2(5.00031, 0.0311288)
+rotation = -0.00475533
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_o87cf")
 
 [node name="Timer" type="Timer" parent="."]
