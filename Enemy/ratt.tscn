@@ -59,8 +59,8 @@ collision_layer = 5
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_8fa30")
-movement_speed = 40.0
-hp = 5
+movement_speed = 150.0
+hp = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.24375, 0.18125)

@@ -58,10 +58,11 @@ collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_iqy64")
 movement_speed = 90.0
-hp = 750
-knockback_recovery = 1.0
-experience = 100
-enemy_damage = 10
+hp = 1000
+knockback_recovery = 99999.0
+experience = 50
+enemy_damage = 30
+is_miniboss = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4.76837e-06, -1.19209e-07)

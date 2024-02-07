@@ -1,17 +1,19 @@
 extends CharacterBody2D
 
-
 @export var movement_speed = 20.0
 @export var hp = 10
 @export var knockback_recovery = 3.5
 @export var experience = 1
 @export var enemy_damage = 1
 @export var is_level_boss = false
+@export var is_roach = false
+@export var is_miniboss = false
 const FILE_BEGIN = "res://World/world"
 var knockback = Vector2.ZERO
 var rng = RandomNumberGenerator.new()
 var crit = false
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var enemy_count = get_tree().get_first_node_in_group("enemy_spawner")
 @onready var loot_base = get_tree().get_first_node_in_group("loot")
 @onready var damage_indicator = preload("res://Player/GUI/damage_indicator.tscn")
 @onready var sprite = $Sprite2D
@@ -31,13 +33,13 @@ var status_effects = {
 	"freeze": {
 		"is_active": false,
 		"movement_speed": 50,
-		"duration": 10.0,
+		"duration": 1.0,
 		"timer": 0.0,
 	},
 	"slow": {
 		"is_active": false,
 		"movement_speed": 50,
-		"duration": 5.0,
+		"duration": 2.0,
 		"timer": 0.0,
 	},
 }
@@ -54,18 +56,23 @@ func _ready():
 func _physics_process(_delta):
 	knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)
 	var direction = global_position.direction_to(player.global_position)
-	if status_effects["freeze"].is_active:
-		velocity = Vector2.ZERO
-	elif status_effects["slow"].is_active:
-		var slowed_speed = movement_speed - status_effects["slow"].movement_speed
-		velocity = direction*slowed_speed
-		velocity += knockback
-		move_and_slide()
+	if is_miniboss != true:
+		if status_effects["freeze"].is_active:
+			velocity = Vector2.ZERO
+		elif status_effects["slow"].is_active:
+			var slowed_speed = movement_speed - status_effects["slow"].movement_speed
+			velocity = direction*slowed_speed
+			velocity += knockback
+			move_and_slide()
+		else:
+			velocity = direction*movement_speed
+			velocity += knockback
+			move_and_slide()
 	else:
 		velocity = direction*movement_speed
 		velocity += knockback
 		move_and_slide()
-	
+		
 	if direction.x > 0.1:
 		sprite.flip_h = true
 	elif direction.x < -0.1:
@@ -112,9 +119,11 @@ func death():
 		queue_free()
 
 func _on_hurt_box_hurt(damage, angle, knockback_amount, effect_type):
-	if rng.randi_range(0, 100) > 50:
+	if rng.randi_range(0, 100) > 99:
 		damage *= 2
 		crit = true
+	if is_roach == true:
+		movement_speed = 120
 	hp -= damage
 	knockback = angle * knockback_amount
 	if effect_type == "slow":

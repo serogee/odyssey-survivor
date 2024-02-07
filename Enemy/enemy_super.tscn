@@ -59,12 +59,12 @@ collision_layer = 5
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_friak")
-movement_speed = 150.0
+movement_speed = 300.0
 hp = 99999
 knockback_recovery = 99999.0
 experience = 1000
-enemy_damage = 20
-is_level_boss = true
+enemy_damage = 50
+is_miniboss = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)

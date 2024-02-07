@@ -6,11 +6,10 @@ extends Node2D
 @onready var player = get_tree().get_first_node_in_group("player")
 
 @export var time = 0
-
+@export var enemy_count = 0 
 signal changetime(time)
 
-var max_enemies = 100
-
+var max_enemies = 12
 func _ready():
 	connect("changetime",Callable(player,"change_time"))
 	get_spawn_area()
@@ -33,6 +32,7 @@ func _on_timer_timeout():
 						var enemy_spawn = new_enemy.instantiate()
 						enemy_spawn.global_position = get_random_position()
 						add_child(enemy_spawn)
+						enemy_count += 1
 						counter += 1
 	emit_signal("changetime",time)
 

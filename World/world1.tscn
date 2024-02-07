@@ -1311,7 +1311,7 @@ script = ExtResource("6_2cdk2")
 time_start = 0
 time_end = 1800
 enemy = ExtResource("4_8opwn")
-enemy_num = 3
+enemy_num = 1
 enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_00ys2"]
@@ -1319,7 +1319,7 @@ script = ExtResource("6_2cdk2")
 time_start = 90
 time_end = 720
 enemy = ExtResource("7_ng830")
-enemy_num = 3
+enemy_num = 1
 enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_n784h"]
@@ -1327,7 +1327,7 @@ script = ExtResource("6_2cdk2")
 time_start = 180
 time_end = 360
 enemy = ExtResource("4_8opwn")
-enemy_num = 2
+enemy_num = 1
 enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_hsgkw"]
@@ -1340,18 +1340,18 @@ enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_y3gtn"]
 script = ExtResource("6_2cdk2")
-time_start = 400
-time_end = 400
+time_start = 360
+time_end = 360
 enemy = ExtResource("9_ak07a")
-enemy_num = 3
+enemy_num = 2
 enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_o2dat"]
 script = ExtResource("6_2cdk2")
 time_start = 600
-time_end = 1200
+time_end = 1800
 enemy = ExtResource("10_vwa5j")
-enemy_num = 5
+enemy_num = 3
 enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_b04x1"]
@@ -1359,15 +1359,15 @@ script = ExtResource("6_2cdk2")
 time_start = 720
 time_end = 1440
 enemy = ExtResource("11_8j0qg")
-enemy_num = 2
+enemy_num = 1
 enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_yo7kw"]
 script = ExtResource("6_2cdk2")
 time_start = 1440
-time_end = 1440
+time_end = 1600
 enemy = ExtResource("9_ak07a")
-enemy_num = 10
+enemy_num = 1
 enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_gfxf0"]
@@ -1375,7 +1375,7 @@ script = ExtResource("6_2cdk2")
 time_start = 1440
 time_end = 1800
 enemy = ExtResource("10_vwa5j")
-enemy_num = 5
+enemy_num = 1
 enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_jpwk2"]
@@ -1383,7 +1383,7 @@ script = ExtResource("6_2cdk2")
 time_start = 1600
 time_end = 1600
 enemy = ExtResource("8_ltj2q")
-enemy_num = 3
+enemy_num = 1
 enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_8al20"]
@@ -1409,7 +1409,7 @@ layer_0/tile_data = PackedInt32Array(-524298, 1, 0, -458762, 1, 1, -393226, 1, 2
 script = ExtResource("3_cbhnw")
 tile_map = NodePath("../../TileMap")
 
-[node name="EnemySpawner" parent="." instance=ExtResource("4_oikmv")]
+[node name="EnemySpawner" parent="." groups=["enemy_count"] instance=ExtResource("4_oikmv")]
 spawns = Array[ExtResource("6_2cdk2")]([SubResource("Resource_840du"), SubResource("Resource_00ys2"), SubResource("Resource_n784h"), SubResource("Resource_hsgkw"), SubResource("Resource_y3gtn"), SubResource("Resource_o2dat"), SubResource("Resource_b04x1"), SubResource("Resource_yo7kw"), SubResource("Resource_gfxf0"), SubResource("Resource_jpwk2"), SubResource("Resource_8al20")])
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
@@ -1423,8 +1423,8 @@ script = ExtResource("13_k4b0x")
 
 [node name="SpawnArea" type="ReferenceRect" parent="."]
 offset_left = -449.0
-offset_top = -324.0
+offset_top = -282.0
 offset_right = 443.0
-offset_bottom = 476.0
+offset_bottom = 334.0
 
 [connection signal="playerdeath" from="Player" to="snd_Music" method="_on_player_playerdeath"]
