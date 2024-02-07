@@ -1,15 +1,17 @@
-[gd_scene load_steps=24 format=3 uid="uid://dncgepmkc4jf4"]
+[gd_scene load_steps=26 format=3 uid="uid://dncgepmkc4jf4"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_37q80"]
 [ext_resource type="Texture2D" uid="uid://c215a1m6jvtwc" path="res://Player/FINALrunning_lemon.png" id="2_4tl4i"]
-[ext_resource type="Texture2D" uid="uid://15ur2kd2683" path="res://Textures/Player/a/LEMON.png" id="3_cbe2r"]
 [ext_resource type="PackedScene" uid="uid://xy3cvpwdy828" path="res://Utility/hurt_box.tscn" id="3_gs51i"]
 [ext_resource type="Texture2D" uid="uid://bdjl6egowoej2" path="res://Textures/GUI/exp_background.png" id="4_pbpj5"]
 [ext_resource type="Texture2D" uid="uid://u2uw2eoj23po" path="res://Textures/GUI/exp_progress.png" id="5_5ive2"]
+[ext_resource type="FontFile" uid="uid://bt5opq2r8vysb" path="res://Textures/GUI/PixeloidMono-d94EV.ttf" id="6_duqrm"]
 [ext_resource type="FontFile" uid="uid://cnelb5ulw2wpq" path="res://Font/tenderness.otf" id="6_okx7u"]
 [ext_resource type="AudioStream" uid="uid://b1sq3xfcm2e2e" path="res://Audio/SoundEffect/levelup.ogg" id="7_wl7d2"]
 [ext_resource type="Texture2D" uid="uid://bujp3m578qsxl" path="res://Textures/GUI/healthbar.png" id="8_flesq"]
+[ext_resource type="FontFile" uid="uid://br6tepw6aevx1" path="res://Textures/GUI/PixeloidSansBold-PKnYd.ttf" id="9_noo0u"]
 [ext_resource type="Texture2D" uid="uid://cjy2fwakjdlbf" path="res://Textures/GUI/health.png" id="9_uker1"]
+[ext_resource type="FontFile" uid="uid://8mbu1svcahe" path="res://Textures/GUI/PixeloidSans-mLxMm.ttf" id="10_m7fbh"]
 [ext_resource type="AudioStream" uid="uid://bxawf1wgd8ub0" path="res://Audio/SoundEffect/Victory.wav" id="10_rwm3p"]
 [ext_resource type="AudioStream" uid="uid://bmdfwwsclqy3t" path="res://Audio/SoundEffect/Lose.ogg" id="11_28kfi"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="12_i8esf"]
@@ -81,13 +83,6 @@ scale = Vector2(0.0885714, 0.0847953)
 sprite_frames = SubResource("SpriteFrames_4sefs")
 animation = &"walk"
 autoplay = "walk"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, 5.68434e-14)
-scale = Vector2(0.0885714, 0.0847953)
-texture = ExtResource("3_cbe2r")
-hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 3)
@@ -201,7 +196,7 @@ layout_mode = 0
 offset_left = 540.0
 offset_right = 640.0
 offset_bottom = 20.0
-theme_override_fonts/font = ExtResource("6_okx7u")
+theme_override_fonts/font = ExtResource("6_duqrm")
 theme_override_font_sizes/font_size = 16
 text = "Level: 1"
 horizontal_alignment = 1
@@ -214,9 +209,9 @@ offset_left = 267.0
 offset_top = 42.0
 offset_right = 367.0
 offset_bottom = 62.0
-theme_override_fonts/font = ExtResource("6_okx7u")
+theme_override_fonts/font = ExtResource("9_noo0u")
 theme_override_font_sizes/font_size = 16
-text = "SCORE:0"
+text = "Score:0"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -236,11 +231,12 @@ texture_progress = ExtResource("9_uker1")
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = -33.0
-offset_top = 7.0
+offset_top = 8.0
 offset_right = 67.0
-offset_bottom = 27.0
-theme_override_fonts/font = ExtResource("6_okx7u")
-theme_override_font_sizes/font_size = 16
+offset_bottom = 21.0
+theme_override_fonts/font = ExtResource("10_m7fbh")
+theme_override_font_sizes/font_size = 8
+text = "100"
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 2
@@ -249,16 +245,18 @@ autowrap_mode = 2
 unique_name_in_owner = true
 process_mode = 2
 layout_mode = 0
-offset_left = 894.0
-offset_top = 73.0
-offset_right = 1094.0
-offset_bottom = 323.0
+offset_left = 168.0
+offset_top = 95.0
+offset_right = 520.0
+offset_bottom = 359.0
 
 [node name="lbl_LevelUP" type="Label" parent="GUILayer/GUI/LevelUp"]
 layout_mode = 0
-offset_right = 200.0
-offset_bottom = 50.0
-theme_override_fonts/font = ExtResource("6_okx7u")
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 352.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("9_noo0u")
 text = "Level Up !"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -266,17 +264,10 @@ vertical_alignment = 1
 [node name="UpgradeOptions" type="VBoxContainer" parent="GUILayer/GUI/LevelUp"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 10.0
-offset_top = 50.0
-offset_right = 190.0
-offset_bottom = 100.0
-
-[node name="UpgradeOptions2" type="VBoxContainer" parent="GUILayer/GUI/LevelUp"]
-layout_mode = 2
-offset_left = 10.0
-offset_top = 50.0
-offset_right = 190.0
-offset_bottom = 50.0
+offset_left = 24.0
+offset_top = 40.0
+offset_right = 204.0
+offset_bottom = 90.0
 
 [node name="snd_levelup" type="AudioStreamPlayer" parent="GUILayer/GUI/LevelUp"]
 unique_name_in_owner = true
@@ -337,19 +328,19 @@ vertical_alignment = 1
 [node name="CollectedWeapons" type="GridContainer" parent="GUILayer/GUI"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 8.0
-offset_top = 24.0
-offset_right = 208.0
-offset_bottom = 40.0
+offset_left = 24.0
+offset_top = 47.0
+offset_right = 224.0
+offset_bottom = 63.0
 columns = 10
 
 [node name="CollectedUpgrades" type="GridContainer" parent="GUILayer/GUI"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 8.0
-offset_top = 40.0
-offset_right = 208.0
-offset_bottom = 56.0
+offset_left = 24.0
+offset_top = 63.0
+offset_right = 224.0
+offset_bottom = 79.0
 columns = 10
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]

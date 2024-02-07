@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://0uv7xbpbe7o2"]
+[gd_scene load_steps=6 format=3 uid="uid://0uv7xbpbe7o2"]
 
 [ext_resource type="Script" path="res://Player/GUI/damage_indicator.gd" id="1_ecgvc"]
+[ext_resource type="FontFile" uid="uid://br6tepw6aevx1" path="res://Textures/GUI/PixeloidSansBold-PKnYd.ttf" id="2_crt3c"]
 
 [sub_resource type="Animation" id="Animation_ku3qs"]
 length = 0.001
@@ -59,6 +60,7 @@ script = ExtResource("1_ecgvc")
 [node name="Label" type="Label" parent="."]
 offset_right = 36.025
 offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("2_crt3c")
 text = "0"
 text_direction = 1
 

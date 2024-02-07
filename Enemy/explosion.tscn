@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cfae4g65cgrp3"]
 
-[ext_resource type="Texture2D" uid="uid://1ssvsta63i3h" path="res://Textures/Enemy/explosion_pixelfied.png" id="1_xvhqw"]
+[ext_resource type="Texture2D" uid="uid://3iib1nyq72i5" path="res://Textures/Enemy/explosion_pixelfied.png" id="1_xvhqw"]
 [ext_resource type="Script" path="res://Enemy/explosion.gd" id="2_d6gja"]
-[ext_resource type="AudioStream" uid="uid://bkehg6pw6gs2h" path="res://Audio/SoundEffect/enemy_death.ogg" id="2_wsm1y"]
+[ext_resource type="AudioStream" uid="uid://bjf3a8fqy5x5q" path="res://Audio/SoundEffect/enemy_death.ogg" id="2_wsm1y"]
 
 [sub_resource type="Animation" id="Animation_064th"]
 length = 0.001

@@ -1,4 +1,4 @@
-extends ColorRect
+extends Button
 
 @onready var lblName = $lbl_name
 @onready var lblDescription = $lbl_description
