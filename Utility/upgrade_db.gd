@@ -1,37 +1,37 @@
 extends Node
 
-
+const Imported_texture = "res://Textures/Enemy/"
 const ICON_PATH = "res://Textures/Items/Upgrades/"
 const WEAPON_PATH = "res://Textures/Items/Weapons/"
 const UPGRADES = {
 	"icespear1": {
-		"icon": WEAPON_PATH + "ice_spear.png",
-		"displayname": "Ice Spear",
-		"details": "A spear of ice is thrown at a random enemy",
+		"icon": Imported_texture + "goo.aseprite",
+		"displayname": "Goo blast",
+		"details": "A Goo is thrown at a random enemy",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "weapon"
 	},
 	"icespear2": {
-		"icon": WEAPON_PATH + "ice_spear.png",
+		"icon": Imported_texture + "goo.aseprite",
 		"displayname": "Ice Spear",
-		"details": "An addition Ice Spear is thrown",
+		"details": "An additional Goo is thrown",
 		"level": "Level: 2",
 		"prerequisite": ["icespear1"],
 		"type": "weapon"
 	},
 	"icespear3": {
-		"icon": WEAPON_PATH + "ice_spear.png",
-		"displayname": "Ice Spear",
-		"details": "Ice Spears now pass through another enemy and do + 3 damage",
+		"icon": Imported_texture + "goo.aseprite",
+		"displayname": "Goo Blast",
+		"details": "Goo now pass through another enemy and do + 3 damage",
 		"level": "Level: 3",
 		"prerequisite": ["icespear2"],
 		"type": "weapon"
 	},
 	"icespear4": {
-		"icon": WEAPON_PATH + "ice_spear.png",
-		"displayname": "Ice Spear",
-		"details": "An additional 2 Ice Spears are thrown",
+		"icon": Imported_texture + "goo.aseprite",
+		"displayname": "Goo Blast",
+		"details": "An additional 2 Goo Blasts are thrown",
 		"level": "Level: 4",
 		"prerequisite": ["icespear3"],
 		"type": "weapon"
@@ -333,14 +333,6 @@ const UPGRADES = {
 		"details": "Your spells now spawn 1 more additional attack",
 		"level": "Level: 1",
 		"prerequisite": [],
-		"type": "upgrade"
-	},
-	"ring2": {
-		"icon": ICON_PATH + "urand_mage.png",
-		"displayname": "Ring",
-		"details": "Your spells now spawn an additional attack",
-		"level": "Level: 2",
-		"prerequisite": ["ring1"],
 		"type": "upgrade"
 	},
 	"food": {
