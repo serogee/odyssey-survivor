@@ -20,28 +20,28 @@ func _ready():
 	rotation = angle.angle() + deg_to_rad(0)
 	match level:
 		1:
-			hp = 3
-			speed = 200
-			damage = 3
-			knockback_amount = 110
-			attack_size = 1.0 * (1 + player.spell_size)
-		2:
-			hp = 3
-			speed = 200
-			damage = 3
-			knockback_amount = 110
-			attack_size = 1.0 * (1 + player.spell_size)
-		3:
 			hp = 5
 			speed = 200
-			damage = 4
-			knockback_amount = 110
+			damage = 2
+			knockback_amount = 90
+			attack_size = 1.0 * (1 + player.spell_size)
+		2:
+			hp = 5
+			speed = 200
+			damage = 2
+			knockback_amount = 90
+			attack_size = 1.0 * (1 + player.spell_size)
+		3:
+			hp = 7
+			speed = 200
+			damage = 3
+			knockback_amount = 90
 			attack_size = 1.0 * (1 + player.spell_size)
 		4:
-			hp = 6
+			hp = 8
 			speed = 200
-			damage = 5
-			knockback_amount = 110
+			damage = 4
+			knockback_amount = 90
 			attack_size = 1.0 * (1 + player.spell_size)
 
 	

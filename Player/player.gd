@@ -66,13 +66,13 @@ var javelin_level = 0
 #spray
 var spray_ammo = 0
 var spray_baseammo = 1
-var spray_attackspeed = 3
+var spray_attackspeed = 1.8
 var spray_level = 0
 
 #soap
 var soap_ammo = 0
 var soap_baseammo = 1
-var soap_attackspeed = 3
+var soap_attackspeed = 5
 var soap_level = 0
 
 #Enemy Related
@@ -157,7 +157,10 @@ func attack():
 			SoapTimer.start()
 
 func _on_hurt_box_hurt(damage, _angle, _knockback, _effect_type):
-	hp -= clamp(damage-armor, 0.0, 999.0)
+	damage = int(clamp(damage-(damage*(0.1*armor)), 0.0, 999.0))
+	if damage < 0:
+		damage = 0
+	hp -= damage
 	hp_level.text = str("HP:", hp,"/", maxhp)
 	healthBar.max_value = maxhp
 	healthBar.value = hp
@@ -390,7 +393,6 @@ func upgrade_character(upgrade):
 			tornado_attackspeed -= 0.5
 		"tornado4":
 			tornado_level = 4
-			tornado_baseammo += 1
 		"javelin1":
 			javelin_level = 1
 			javelin_ammo = 1
@@ -409,7 +411,7 @@ func upgrade_character(upgrade):
 			spell_size += 0.10
 		"scroll1","scroll2","scroll3","scroll4":
 			spell_cooldown += 0.05
-		"ring1","ring2":
+		"ring1":
 			additional_attacks += 1
 		"spray1":
 			spray_level = 1
