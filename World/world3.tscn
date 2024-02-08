@@ -4020,9 +4020,8 @@ layer_0/tile_data = PackedInt32Array(-786445, 1, 0, -720909, 1, 1, -655373, 1, 2
 [node name="Player" parent="." instance=ExtResource("3_ba8u2")]
 position = Vector2(87, 74)
 
-[node name="follow cam" type="Camera2D" parent="Player" node_paths=PackedStringArray("tile_map")]
+[node name="follow cam" type="Camera2D" parent="Player"]
 script = ExtResource("4_3342q")
-tile_map = NodePath("../../TileMap")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_knrsj")]
 spawns = Array[ExtResource("7_llqk2")]([SubResource("Resource_cgyfu"), SubResource("Resource_03m25"), SubResource("Resource_ij20a"), SubResource("Resource_68oxv"), SubResource("Resource_rx6id"), SubResource("Resource_l8y0x"), SubResource("Resource_daq1w"), SubResource("Resource_0gpiy"), SubResource("Resource_4teun"), SubResource("Resource_t2np8")])

@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://x6ypfw6n2ska"
+=======
+uid="uid://dtvnjtm0e3fdl"
+>>>>>>> Stashed changes
 path="res://.godot/imported/SURVIVAL_ODYSSEY_1.png-a4fbc7b74438ceb7bd8e3ad8421bd4d2.ctex"
 metadata={
 "vram_texture": false

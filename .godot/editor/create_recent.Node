@@ -1,7 +1,17 @@
+<<<<<<< Updated upstream
 Button
 Control
 Sprite2D
 Container
+=======
+AnimationPlayer
+Timer
+ProgressBar
+Panel
+Control
+CanvasLayer
+Camera2D
+>>>>>>> Stashed changes
 AnimatedSprite2D
 AnimationPlayer
 Camera2D
@@ -9,10 +19,13 @@ ReferenceRect
 Timer
 CPUParticles2D
 GPUParticles2D
+<<<<<<< Updated upstream
+=======
+Sprite2D
+>>>>>>> Stashed changes
 Label
 TileMap
 TextureRect
-Panel
 Area2D
 AudioStreamPlayer
 ColorRect
@@ -20,7 +33,10 @@ GridContainer
 TextureProgressBar
 Node
 VBoxContainer
+<<<<<<< Updated upstream
 CanvasLayer
+=======
+>>>>>>> Stashed changes
 CollisionShape2D
 Node2D
 AudioStreamPlayer2D

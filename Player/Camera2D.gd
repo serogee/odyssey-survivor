@@ -1,7 +1,7 @@
 extends Camera2D
 
-@export var tile_map: TileMap
 
+<<<<<<< Updated upstream
 func _ready():
 	var visibleArea = tile_map.get_used_rect()
 	var tileSize = tile_map.cell_quadrant_size
@@ -12,3 +12,5 @@ func _ready():
 	limit_top = visibleArea.position.y + upperLeftCorner.y;
 	limit_right = visibleArea.position.x + lowerRightCorner.x;
 	limit_bottom = visibleArea.position.y + lowerRightCorner.y;
+=======
+>>>>>>> Stashed changes

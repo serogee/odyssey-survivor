@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< Updated upstream
-uid="uid://pvd1f5ogqw85"
-=======
-uid="uid://dax70oq08w33l"
->>>>>>> Stashed changes
-path="res://.godot/imported/locust guy idle.png-cf7c74669828951ce925b74103b41943.ctex"
+uid="uid://7gcsld1rqr2n"
+path="res://.godot/imported/locust guy idle.aseprite-df6afce4aa20a7f31c49c2d13c59b004.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Enemy/locust guy idle.png"
-dest_files=["res://.godot/imported/locust guy idle.png-cf7c74669828951ce925b74103b41943.ctex"]
+source_file="res://Textures/Enemy/locust guy idle.aseprite"
+dest_files=["res://.godot/imported/locust guy idle.aseprite-df6afce4aa20a7f31c49c2d13c59b004.ctex"]
 
 [params]
 

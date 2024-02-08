@@ -117,7 +117,6 @@ func death():
 			new_food.global_position = global_position
 			loot_base.call_deferred("add_child",new_food)
 		queue_free()
-
 func _on_hurt_box_hurt(damage, angle, knockback_amount, effect_type):
 	if rng.randi_range(0, 100) > 99:
 		damage *= 2

@@ -1,4 +1,5 @@
 res://World/world1.tscn
+<<<<<<< Updated upstream
 res://Player/player.tscn
 res://Enemy/roach.tscn
 res://Player/Attack/ice_spear.tscn
@@ -23,3 +24,16 @@ res://Enemy/enemy_super.tscn
 res://Enemy/enemy_juggernaut.tscn
 res://Enemy/enemy_cyclops.tscn
 res://World/world2.tscn
+=======
+res://TitleScreen/menu.tscn
+res://World/world2.tscn
+res://Enemy/enemy_super.tscn
+res://World/world3.tscn
+res://TitleScreen/menu.gd
+res://Enemy/enemy.gd
+res://Utility/enemy_spawner.tscn
+res://Enemy/enemy_kobold_strong.tscn
+res://Enemy/roach.tscn
+res://Enemy/ratt.tscn
+res://Player/player.tscn
+>>>>>>> Stashed changes

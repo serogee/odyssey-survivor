@@ -1,5 +1,8 @@
 res://Textures/Enemy
+<<<<<<< Updated upstream
 res://Textures/Items/Weapons
+=======
+>>>>>>> Stashed changes
 res://TitleScreen
 res://Player
 res://World/Tilemaps

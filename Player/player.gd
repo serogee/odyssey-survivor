@@ -1,5 +1,4 @@
-extends CharacterBody2D
-
+class_name Player extends CharacterBody2D
 
 var movement_speed = 75
 var hp = 100
@@ -78,7 +77,8 @@ var soap_level = 0
 #Enemy Related
 var enemy_close = []
 
-
+@export var map: TileMap
+@export var input_enabled = true
 @onready var sprite = $AnimatedSprite2D
 @onready var walkTimer = get_node("%walkTimer")
 
@@ -96,7 +96,6 @@ var enemy_close = []
 @onready var collectedWeapons = get_node("%CollectedWeapons")
 @onready var collectedUpgrades = get_node("%CollectedUpgrades")
 @onready var itemContainer = preload("res://Player/GUI/item_container.tscn")
-
 @onready var deathPanel = get_node("%DeathPanel")
 @onready var lblResult = get_node("%lbl_Result")
 @onready var sndVictory = get_node("%snd_victory")
@@ -109,8 +108,13 @@ func _ready():
 	upgrade_character("icespear1")
 	attack()
 	set_expbar(experience, calculate_experiencecap())
+	var tile_map = get_parent().get_node("TileMap")
+	var mapRect = tile_map.get_used_rect()
+	var tileSize = tile_map.cell_quadrant_size
+	var worldSizeInPixels = mapRect.size * tileSize
+	$Camera2D.limit_right = worldSizeInPixels.x
+	$Camera2D.limit_bottom = worldSizeInPixels.y
 	_on_hurt_box_hurt(0,0,0,0)
-
 func _physics_process(delta):
 	movement()
 
@@ -511,9 +515,6 @@ func death():
 		lblResult.text = "You Lose"
 		sndLose.play()
 
-
 func _on_btn_menu_click_end():
 	get_tree().paused = false
 	var _level = get_tree().change_scene_to_file("res://TitleScreen/menu.tscn")
-
-
