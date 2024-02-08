@@ -14,7 +14,7 @@ const UPGRADES = {
 	},
 	"icespear2": {
 		"icon": Imported_texture + "goo.aseprite",
-		"displayname": "Ice Spear",
+		"displayname": "Goo Blast",
 		"details": "An additional Goo is thrown",
 		"level": "Level: 2",
 		"prerequisite": ["icespear1"],

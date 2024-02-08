@@ -39,7 +39,7 @@ func update_javelin():
 		1:
 			hp = 9999
 			speed = 200.0
-			damage = 10
+			damage = 5
 			knockback_amount = 100
 			paths = 1
 			attack_size = 1.0 * (1 + player.spell_size)
@@ -47,7 +47,7 @@ func update_javelin():
 		2:
 			hp = 9999
 			speed = 200.0
-			damage = 10
+			damage = 5
 			knockback_amount = 100
 			paths = 2
 			attack_size = 1.0 * (1 + player.spell_size)
@@ -55,7 +55,7 @@ func update_javelin():
 		3:
 			hp = 9999
 			speed = 200.0
-			damage = 10
+			damage = 5
 			knockback_amount = 100
 			paths = 3
 			attack_size = 1.0 * (1 + player.spell_size)
@@ -63,7 +63,7 @@ func update_javelin():
 		4:
 			hp = 9999
 			speed = 200.0
-			damage = 15
+			damage = 6
 			knockback_amount = 120
 			paths = 3
 			attack_size = 1.0 * (1 + player.spell_size)

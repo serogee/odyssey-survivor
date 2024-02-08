@@ -22,7 +22,3 @@ res://Enemy/enemy_mommy.tscn
 res://Enemy/enemy_super.tscn
 res://Enemy/enemy_juggernaut.tscn
 res://Enemy/enemy_cyclops.tscn
-res://Player/player.gd
-res://Player/Attack/soap.gd
-res://Player/Attack/bed.gd
-res://Utility/upgrade_db.gd

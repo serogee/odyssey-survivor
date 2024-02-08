@@ -157,7 +157,10 @@ func attack():
 			SoapTimer.start()
 
 func _on_hurt_box_hurt(damage, _angle, _knockback, _effect_type):
-	hp -= clamp(damage-armor, 0.0, 999.0)
+	damage = int(clamp(damage-(damage*(0.1*armor)), 0.0, 999.0))
+	if damage < 0:
+		damage = 0
+	hp -= damage
 	hp_level.text = str("HP:", hp,"/", maxhp)
 	healthBar.max_value = maxhp
 	healthBar.value = hp
